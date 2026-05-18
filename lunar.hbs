@@ -1,348 +1,1233 @@
 {{!< default}}
 
-<main class="lunar-wrap">
-  <h1 class="hc-title">
-  Heavenly Calendar
-  <span id="cheonYearLabel" class="hc-sub"></span>
-</h1>
+{{!-- ================================================================ --}}
+{{!-- Schema.org — WebApplication                                      --}}
+{{!-- ================================================================ --}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "{{@site.url}}/calendar/#webapp",
+  "name": "Heavenly Calendar",
+  "alternateName": "Cheon Il Guk Lunar Calendar",
+  "description": "Lunar calendar of Cheon Il Guk showing Ahn Shil Il (weekly day of rest), Holy Days, and providential observances of the Unification movement.",
+  "url": "{{@site.url}}/calendar/",
+  "applicationCategory": "UtilitiesApplication",
+  "applicationSubCategory": "Calendar",
+  "operatingSystem": "Web Browser",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "featureList": [
+    "Lunar to solar date conversion",
+    "Cheon Il Guk year tracking",
+    "Holy Days listing",
+    "Ahn Shil Il weekly observance tracker",
+    "Embeddable iframe widget"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "publisher": {"@id": "{{@site.url}}/#organization"},
+  "isPartOf": {"@id": "{{@site.url}}/#website"}
+}
+</script>
 
+{{!-- ================================================================ --}}
+{{!-- Schema.org — BreadcrumbList                                      --}}
+{{!-- ================================================================ --}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{@site.url}}" },
+    { "@type": "ListItem", "position": 2, "name": "Heavenly Calendar", "item": "{{@site.url}}/calendar/" }
+  ]
+}
+</script>
 
-<p class="hc-motto">
-  In the 13th year of Cheon Il Guk, when we attend the Creator Heavenly Parent substantially, 
-  let us, the blessed families around the world, become true sons and daughters of Cheon Il Guk 
-  who fulfill our responsibility as the chosen people in unity with True Parents!
-</p>
+{{!-- ================================================================ --}}
+{{!-- Schema.org — ItemList of 10 Holy Days                            --}}
+{{!-- ================================================================ --}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "{{@site.url}}/calendar/#holy-days-list",
+  "name": "The Ten Holy Days of Cheon Il Guk",
+  "description": "Canonical observances of the Unification movement positioned by lunar date.",
+  "numberOfItems": 10,
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "item": {
+      "@type": "Event", "name": "God's Day", "alternateName": "하나님의 날",
+      "description": "Established by True Father in 1968. Observed annually on Lunar 1.1.",
+      "url": "{{@site.url}}/gods-day/",
+      "startDate": "1968-01-27",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }},
+    {"@type": "ListItem", "position": 2, "item": {
+      "@type": "Event", "name": "True Parents' Birthday", "alternateName": "참부모님 탄신일",
+      "description": "Anniversary of Sun Myung Moon's birth, 1920. Observed annually on Lunar 1.6.",
+      "url": "{{@site.url}}/tag/true-parents-birthday/",
+      "startDate": "1920-02-25",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }},
+    {"@type": "ListItem", "position": 3, "item": {
+      "@type": "Event", "name": "Foundation Day", "alternateName": "기원절",
+      "description": "Inauguration of Cheon Il Guk on January 13, 2013. Observed annually on Lunar 1.13.",
+      "url": "{{@site.url}}/foundation-day-the-start-of-a-new-history/",
+      "startDate": "2013-02-22",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }},
+    {"@type": "ListItem", "position": 4, "item": {
+      "@type": "Event", "name": "True Parents' Holy Wedding", "alternateName": "참부모 성혼식",
+      "description": "Holy Wedding of Sun Myung Moon and Hak Ja Han, 1960. Observed annually on Lunar 3.16.",
+      "url": "{{@site.url}}/true-parents-holy-wedding/",
+      "startDate": "1960-04-11",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }},
+    {"@type": "ListItem", "position": 5, "item": {
+      "@type": "Event", "name": "Day of All True Things", "alternateName": "참만물의 날",
+      "description": "Established 1963. Observed annually on Lunar 5.1.",
+      "url": "{{@site.url}}/true-day-of-all-things/",
+      "startDate": "1963-06-20",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }},
+    {"@type": "ListItem", "position": 6, "item": {
+      "@type": "Event", "name": "Declaration Day of God's Eternal Blessing", "alternateName": "칠일절",
+      "description": "7.1 Jeol. Observed annually on Lunar 7.1.",
+      "url": "{{@site.url}}/declaration-day-of-gods-eternal-blessing/",
+      "startDate": "1991-08-10",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }},
+    {"@type": "ListItem", "position": 7, "item": {
+      "@type": "Event", "name": "Cosmic Sabbath", "alternateName": "칠팔절",
+      "description": "Cosmic Sabbath for the Parents of Heaven and Earth. Observed annually on Lunar 7.7.",
+      "url": "{{@site.url}}/declaration-of-the-realm-of-the-cosmic-sabbath-for-the-parents-of-heaven-and-earth/",
+      "startDate": "1997-08-09",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }},
+    {"@type": "ListItem", "position": 8, "item": {
+      "@type": "Event", "name": "True Father's Seonghwa", "alternateName": "성화",
+      "description": "True Father's ascension on August 17, 2012. Observed annually on Lunar 7.17.",
+      "url": "{{@site.url}}/mother-speaks-of-fathers-forty-day-transition/",
+      "startDate": "2012-09-03",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }},
+    {"@type": "ListItem", "position": 9, "item": {
+      "@type": "Event", "name": "True Children's Day", "alternateName": "참자녀의 날",
+      "description": "Established 1960. Observed annually on Lunar 10.1.",
+      "url": "{{@site.url}}/childrens-day/",
+      "startDate": "1960-10-20",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }},
+    {"@type": "ListItem", "position": 10, "item": {
+      "@type": "Event", "name": "Foundation Day for the Unified Nation", "alternateName": "천일국 기원절",
+      "description": "Foundation Day for the Unified Nation. Observed annually on Lunar 10.3.",
+      "url": "{{@site.url}}/foundation-day-for-the-nation-of-the-unified-world/",
+      "startDate": "2004-11-14",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "{{@site.url}}/calendar/"},
+      "organizer": {"@id": "{{@site.url}}/#organization"}
+    }}
+  ]
+}
+</script>
 
-<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js"></script>
+{{!-- ================================================================ --}}
+{{!-- Schema.org — FAQPage                                             --}}
+{{!-- ================================================================ --}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{@site.url}}/calendar/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the main holy days of the Unification movement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Unification movement observes six principal Holy Days: God's Day, True Parents' Day, True Children's Day, the Day of All True Things, the Day of Victory of Love, and Foundation Day. Each marks a specific providential milestone — a moment when a spiritual standard was established in human history. Observed according to the Heavenly Calendar (lunar cycle), their dates shift each year relative to the solar calendar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is God's Day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "God's Day was inaugurated by Rev. Moon on January 1, 1968, at 3 a.m. at the Unification Church headquarters in Cheongpadong, Seoul, Korea. It was the first day in history when God could be honored in His own right — not as a distant ruler, but as a Parent whose children had returned to Him through restored love. In 1994, the name was updated to True God's Day to reflect a deeper understanding of God's nature as the Heavenly Parent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Foundation Day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Foundation Day was proclaimed on January 13, 2013 (Heavenly Calendar), marking the formal inauguration of Cheon Il Guk: the Kingdom of Heaven on earth and in heaven. It is considered the most historically significant date in the entire restoration providence — the culmination of all the preparation, suffering, and indemnity conditions laid over thousands of years of human history."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Day of Victory of Love?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Day of Victory of Love was established on January 2, 1984, following the death of Rev. Moon's son Heung Jin Nim in a traffic accident on December 22, 1983. Rather than being observed as a day of mourning, Rev. Moon declared it a day of victory — teaching that his son's death, embraced with love and without resentment, had broken Satan's claim over human lineage in a way that could not otherwise have been achieved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When did True Parents' Day, True Children's Day, and the Day of All True Things begin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "True Parents' Day was first established on April 1, 1960 (lunar calendar), shortly after Rev. Moon's Holy Wedding with Hak Ja Han on March 1, 1960. True Children's Day followed in October 1960. The Day of All True Things came next, in June 1963 — each day building on the one before, completing the four-position foundation step by step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Ahn Shil Il?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ahn Shil Il — meaning 'Day of Sabbath' or 'Day of Rest' — is a weekly observance in the Unification movement marked in blue on the Heavenly Calendar. Ahn Shil Il is understood as a day of spiritual restoration: families gather, recite the Family Pledge, engage in Hoon Dok Hae, and rest from ordinary labor as a reflection of their alignment with God's creative rhythm."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Heavenly Calendar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Heavenly Calendar is a lunar calendar used within the Unification movement to track the dates of holy days, Ahn Shil Il, and other providential observances. Most key dates were originally established lunar, so their Gregorian equivalents shift each year. By observing the Heavenly Calendar, members participate in the providential rhythm consciously — ordering their weeks around Ahn Shil Il and their year around six holy days."
+      }
+    }
+  ]
+}
+</script>
 
-  <!-- Today card -->
-  <section class="lunar-today" aria-live="polite">
-    <div class="lday" id="lday">--</div>
-    <div class="ltitle">
-      <div class="ldate" id="ldateHuman">—</div>
-      <div class="lspecial" id="lspecial"></div>
-      <div class="lline" id="lunarMD">—</div>
+{{!-- Lunar calendar library — self-hosted (mirrored from korean-lunar-calendar@0.3.6 / MIT licensed) --}}
+<script src="{{asset "js/korean-lunar-calendar.min.js"}}"></script>
+
+<div class="lunar-wrap">
+
+  {{!-- ============================================================ --}}
+  {{!-- HERO                                                          --}}
+  {{!-- ============================================================ --}}
+  <section class="hc-hero">
+    <p class="hc-eyebrow">Holy Days &amp; Calendar</p>
+    <h1 class="hc-title">Heavenly Calendar</h1>
+    <p class="hc-motto">
+      In the 14th year of Cheon Il Guk, when we attend the Creator Heavenly Parent substantially,
+      let us, the blessed families around the world, become true sons and daughters of Cheon Il Guk
+      who fulfill our responsibility as the chosen people in unity with True Parents.
+    </p>
+  </section>
+
+  {{!-- ============================================================ --}}
+  {{!-- TODAY CARD                                                   --}}
+  {{!-- ============================================================ --}}
+  <section class="lunar-today" aria-live="polite" aria-label="Today">
+    <div class="lcube">
+      <span class="lcube-num" id="lcubeNum">—</span>
+      <span class="lcube-lbl">Heavenly</span>
+    </div>
+    <div class="linfo">
+      <p class="lsolar" id="lsolarDate">—</p>
+      <span class="lera" id="cheonYearLabel"></span>
+      <div class="levents" id="lspecial" aria-live="polite"></div>
     </div>
   </section>
 
-  <!-- Month navigation -->
+  {{!-- ============================================================ --}}
+  {{!-- MONTH NAV                                                    --}}
+  {{!-- ============================================================ --}}
   <nav class="lunar-nav" aria-label="Month navigation">
-    <button id="prevMonth" class="navbtn" aria-label="Previous month">‹</button>
-    <div id="monthLabel" class="monthlabel">—</div>
-    <button id="nextMonth" class="navbtn" aria-label="Next month">›</button>
+    <button id="prevMonth" class="navbtn" aria-label="Previous month">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <div id="monthLabel" class="monthlabel" aria-live="polite">—</div>
+    <button id="nextMonth" class="navbtn" aria-label="Next month">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
   </nav>
 
-  <!-- Month grid -->
+  {{!-- ============================================================ --}}
+  {{!-- CALENDAR GRID                                                --}}
+  {{!-- ============================================================ --}}
   <section class="lunar-grid" role="grid" aria-label="Gregorian calendar">
     <div class="grid-scroll">
-      <div class="dows">
-        <div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div>
-        <div class="dow">Thu</div><div class="dow">Fri</div><div class="dow">Sat</div><div class="dow">Sun</div>
+      <div class="dows" role="row">
+        <div class="dow" role="columnheader" abbr="Monday">Mon</div>
+        <div class="dow" role="columnheader" abbr="Tuesday">Tue</div>
+        <div class="dow" role="columnheader" abbr="Wednesday">Wed</div>
+        <div class="dow" role="columnheader" abbr="Thursday">Thu</div>
+        <div class="dow" role="columnheader" abbr="Friday">Fri</div>
+        <div class="dow weekend" role="columnheader" abbr="Saturday">Sat</div>
+        <div class="dow weekend" role="columnheader" abbr="Sunday">Sun</div>
       </div>
       <div id="grid" class="cells" role="rowgroup"></div>
     </div>
   </section>
 
-  <!-- Legend -->
+  {{!-- ============================================================ --}}
+  {{!-- LEGEND                                                       --}}
+  {{!-- ============================================================ --}}
   <section class="legend" aria-label="Legend">
-    <div class="legend-item-wrap">
-      <span class="legend-swatch blue"></span><span class="legend-text nowrap"><b class="c-blue">Blue</b> — AHN SHIL IL</span>
-    </div>
-    <div class="legend-item-wrap">
-      <span class="legend-swatch red"></span><span class="legend-text nowrap"><b class="c-red">Red</b> — Holiday</span>
+    <span class="legend-item">
+      <span class="legend-swatch blue" aria-hidden="true"></span>
+      <strong class="c-blue">Ahn Shil Il</strong>
+      <span class="legend-note">weekly day of rest (every 8th day)</span>
+    </span>
+    <span class="legend-item">
+      <span class="legend-swatch red" aria-hidden="true"></span>
+      <strong class="c-red">Holy Day</strong>
+      <span class="legend-note">official sacred observance</span>
+    </span>
+  </section>
+
+  {{!-- ============================================================ --}}
+  {{!-- UPCOMING EVENTS                                              --}}
+  {{!-- ============================================================ --}}
+  <section class="upcoming-section" aria-labelledby="upcoming-heading">
+    <header class="upcoming-head">
+      <h2 id="upcoming-heading">Upcoming</h2>
+      <span class="upcoming-hint">Next 60 days</span>
+    </header>
+    <div class="upcoming-list" id="upcomingList"></div>
+  </section>
+
+  {{!-- ============================================================ --}}
+  {{!-- EMBED CTA                                                    --}}
+  {{!-- ============================================================ --}}
+  <section class="calendar-embed-cta">
+    <button id="openEmbedCode" class="embed-btn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      Embed this calendar on your site
+    </button>
+
+    <div id="embedDialog" class="embed-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="embedDialogTitle">
+      <div class="embed-dialog-inner">
+        <div class="embed-dialog-header">
+          <h2 id="embedDialogTitle">Embed Heavenly Calendar</h2>
+          <button type="button" id="closeEmbedDialog" class="embed-close" aria-label="Close">&times;</button>
+        </div>
+        <p>Copy this code and paste it into your website's HTML:</p>
+        <textarea id="embedCode" class="embed-code" readonly aria-label="Embed code"><iframe
+  src="https://tplegacy.net/calendar/?embed=1"
+  style="border:1px solid #e5e7eb;border-radius:16px;width:100%;max-width:920px;height:680px;overflow:hidden;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+  title="Heavenly Calendar — True Parents Legacy"
+></iframe></textarea>
+        <div class="embed-actions">
+          <button type="button" id="copyEmbedCode" class="embed-btn small">Copy code</button>
+        </div>
+        <p class="embed-note">
+          You can change <code>width</code>, <code>max-width</code> and <code>height</code> in the <code>style</code> attribute to fit your layout. The embedded calendar always shows attribution to True Parents Legacy.
+        </p>
+      </div>
     </div>
   </section>
-</main>
 
+  {{!-- ============================================================ --}}
+  {{!-- LITURGICAL CALENDAR — wheel of 10 Holy Days                  --}}
+  {{!-- ============================================================ --}}
+  <section class="cal-section cal-wheel-section">
+    <p class="cal-eyebrow">Heavenly Calendar</p>
+    <h2 class="cal-heading">The ten holy days of Cheon Il Guk</h2>
+    <p class="cal-subtitle">Each canonical observance positioned by lunar date.</p>
+
+    <svg class="cal-svg" viewBox="-55 -30 790 850" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Round liturgical calendar showing ten high-confidence holy days of Cheon Il Guk by lunar date.">
+
+      {{!-- 12 seasonal sectors --}}
+      <g>
+        <path class="cal-sector" data-month="1"  d="M 340.0,292.0 L 340.0,100.0 A 280,280 0 0 1 480.0,137.5 L 384.0,303.8 A 88,88 0 0 0 340.0,292.0 Z" fill="hsl(210, 22%, 88%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="2"  d="M 384.0,303.8 L 480.0,137.5 A 280,280 0 0 1 582.5,240.0 L 416.2,336.0 A 88,88 0 0 0 384.0,303.8 Z" fill="hsl(165, 22%, 87%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="3"  d="M 416.2,336.0 L 582.5,240.0 A 280,280 0 0 1 620.0,380.0 L 428.0,380.0 A 88,88 0 0 0 416.2,336.0 Z" fill="hsl(120, 24%, 86%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="4"  d="M 428.0,380.0 L 620.0,380.0 A 280,280 0 0 1 582.5,520.0 L 416.2,424.0 A 88,88 0 0 0 428.0,380.0 Z" fill="hsl(90, 28%, 85%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="5"  d="M 416.2,424.0 L 582.5,520.0 A 280,280 0 0 1 480.0,622.5 L 384.0,456.2 A 88,88 0 0 0 416.2,424.0 Z" fill="hsl(70, 30%, 84%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="6"  d="M 384.0,456.2 L 480.0,622.5 A 280,280 0 0 1 340.0,660.0 L 340.0,468.0 A 88,88 0 0 0 384.0,456.2 Z" fill="hsl(50, 34%, 83%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="7"  d="M 340.0,468.0 L 340.0,660.0 A 280,280 0 0 1 200.0,622.5 L 296.0,456.2 A 88,88 0 0 0 340.0,468.0 Z" fill="hsl(38, 40%, 81%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="8"  d="M 296.0,456.2 L 200.0,622.5 A 280,280 0 0 1 97.5,520.0 L 263.8,424.0 A 88,88 0 0 0 296.0,456.2 Z" fill="hsl(28, 36%, 82%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="9"  d="M 263.8,424.0 L 97.5,520.0 A 280,280 0 0 1 60.0,380.0 L 252.0,380.0 A 88,88 0 0 0 263.8,424.0 Z" fill="hsl(18, 30%, 83%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="10" d="M 252.0,380.0 L 60.0,380.0 A 280,280 0 0 1 97.5,240.0 L 263.8,336.0 A 88,88 0 0 0 252.0,380.0 Z" fill="hsl(8, 28%, 84%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="11" d="M 263.8,336.0 L 97.5,240.0 A 280,280 0 0 1 200.0,137.5 L 296.0,303.8 A 88,88 0 0 0 263.8,336.0 Z" fill="hsl(355, 24%, 85%)" stroke="#fff" stroke-width="0.5"/>
+        <path class="cal-sector" data-month="12" d="M 296.0,303.8 L 200.0,137.5 A 280,280 0 0 1 340.0,100.0 L 340.0,292.0 A 88,88 0 0 0 296.0,303.8 Z" fill="hsl(230, 22%, 87%)" stroke="#fff" stroke-width="0.5"/>
+      </g>
+
+      {{!-- Inner cream-tinted center --}}
+      <circle cx="340" cy="380" r="88" fill="#f5f0e8" stroke="#e5e2da" stroke-width="0.5"/>
+
+      {{!-- Month numbers — positioned INSIDE each sector at radius 180 from center --}}
+      <g class="cal-month-numbers" font-family="-apple-system, sans-serif" font-size="13" fill="#3a3a3a" font-weight="600">
+        <text x="386.6" y="206.1" text-anchor="middle" dominant-baseline="middle">1</text>
+        <text x="467.3" y="252.7" text-anchor="middle" dominant-baseline="middle">2</text>
+        <text x="513.9" y="333.4" text-anchor="middle" dominant-baseline="middle">3</text>
+        <text x="513.9" y="426.6" text-anchor="middle" dominant-baseline="middle">4</text>
+        <text x="467.3" y="507.3" text-anchor="middle" dominant-baseline="middle">5</text>
+        <text x="386.6" y="553.9" text-anchor="middle" dominant-baseline="middle">6</text>
+        <text x="293.4" y="553.9" text-anchor="middle" dominant-baseline="middle">7</text>
+        <text x="212.7" y="507.3" text-anchor="middle" dominant-baseline="middle">8</text>
+        <text x="166.1" y="426.6" text-anchor="middle" dominant-baseline="middle">9</text>
+        <text x="166.1" y="333.4" text-anchor="middle" dominant-baseline="middle">10</text>
+        <text x="212.7" y="252.7" text-anchor="middle" dominant-baseline="middle">11</text>
+        <text x="293.4" y="206.1" text-anchor="middle" dominant-baseline="middle">12</text>
+      </g>
+
+      {{!-- Leader lines from dots to repositioned labels --}}
+      <g stroke="#a08456" stroke-width="0.6">
+        <line x1="338.0" y1="132.5" x2="280.0"  y2="56.0"/>
+        <line x1="361.0" y1="135.0" x2="420.0"  y2="38.0"/>
+        <line x1="394.0" y1="142.0" x2="610.0"  y2="100.0"/>
+        <line x1="579.5" y1="315.8" x2="608.0"  y2="287.0"/>
+        <line x1="554.8" y1="504.0" x2="606.0"  y2="497.0"/>
+        <line x1="343.0" y1="627.5" x2="420.0"  y2="717.0"/>
+        <line x1="318.0" y1="624.0" x2="280.0"  y2="755.0"/>
+        <line x1="278.0" y1="615.0" x2="125.0"  y2="725.0"/>
+        <line x1="92.0"  y1="380.0" x2="74.0"   y2="427.0"/>
+        <line x1="92.2"  y1="371.3" x2="74.0"   y2="367.0"/>
+      </g>
+
+      {{!-- Holiday dots --}}
+      <g>
+        <circle class="cal-dot" data-slug="gods-day"        cx="340.0" cy="140.0" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="God's Day, lunar 1.1"/>
+        <circle class="cal-dot" data-slug="tp-birthday"     cx="360.9" cy="140.9" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="True Parents Birthday, lunar 1.6"/>
+        <circle class="cal-dot" data-slug="foundation-day"  cx="389.9" cy="145.2" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="Foundation Day, lunar 1.13"/>
+        <circle class="cal-dot" data-slug="holy-wedding"    cx="571.8" cy="317.9" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="Holy Wedding, lunar 3.16"/>
+        <circle class="cal-dot" data-slug="all-true-things" cx="547.8" cy="500.0" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="All True Things, lunar 5.1"/>
+        <circle class="cal-dot" data-slug="cig-foundation"  cx="340.0" cy="620.0" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="CIG Foundation, lunar 7.1"/>
+        <circle class="cal-dot" data-slug="cosmic-sabbath"  cx="314.9" cy="618.7" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="Cosmic Sabbath, lunar 7.7"/>
+        <circle class="cal-dot" data-slug="seonghwa"        cx="273.8" cy="610.7" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="Seonghwa, lunar 7.17"/>
+        <circle class="cal-dot" data-slug="childrens-day"   cx="100.0" cy="380.0" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="Children's Day, lunar 10.1"/>
+        <circle class="cal-dot" data-slug="unified-nation"  cx="100.1" cy="371.6" r="7" fill="#BA7517" stroke="#fff" stroke-width="2" tabindex="0" role="button" aria-label="Unified Nation, lunar 10.3"/>
+      </g>
+
+      {{!-- Holiday labels (each <g> is clickable + keyboard accessible) --}}
+      <g font-family="Georgia, serif">
+        <g class="cal-label" data-slug="gods-day" tabindex="0" role="button" aria-label="God's Day">
+          <text x="280" y="50"  text-anchor="end" font-size="15" fill="#1a1a1a" font-weight="500">God&#39;s Day</text>
+          <text x="280" y="67"  text-anchor="end" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 1.1</text>
+        </g>
+        <g class="cal-label" data-slug="tp-birthday" tabindex="0" role="button" aria-label="True Parents Birthday">
+          <text x="420" y="32"  text-anchor="middle" font-size="15" fill="#1a1a1a" font-weight="500">TP Birthday</text>
+          <text x="420" y="49"  text-anchor="middle" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 1.6</text>
+        </g>
+        <g class="cal-label" data-slug="foundation-day" tabindex="0" role="button" aria-label="Foundation Day">
+          <text x="610" y="92"  text-anchor="start" font-size="15" fill="#1a1a1a" font-weight="500">Foundation Day</text>
+          <text x="610" y="109" text-anchor="start" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 1.13</text>
+        </g>
+        <g class="cal-label" data-slug="holy-wedding" tabindex="0" role="button" aria-label="Holy Wedding">
+          <text x="612" y="278" text-anchor="start" font-size="15" fill="#1a1a1a" font-weight="500">Holy Wedding</text>
+          <text x="612" y="295" text-anchor="start" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 3.16</text>
+        </g>
+        <g class="cal-label" data-slug="all-true-things" tabindex="0" role="button" aria-label="All True Things">
+          <text x="610" y="488" text-anchor="start" font-size="15" fill="#1a1a1a" font-weight="500">All True Things</text>
+          <text x="610" y="505" text-anchor="start" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 5.1</text>
+        </g>
+        <g class="cal-label" data-slug="cig-foundation" tabindex="0" role="button" aria-label="CIG Foundation">
+          <text x="420" y="724" text-anchor="start" font-size="15" fill="#1a1a1a" font-weight="500">CIG Foundation</text>
+          <text x="420" y="741" text-anchor="start" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 7.1</text>
+        </g>
+        <g class="cal-label" data-slug="cosmic-sabbath" tabindex="0" role="button" aria-label="Cosmic Sabbath">
+          <text x="280" y="765" text-anchor="middle" font-size="15" fill="#1a1a1a" font-weight="500">Cosmic Sabbath</text>
+          <text x="280" y="782" text-anchor="middle" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 7.7</text>
+        </g>
+        <g class="cal-label" data-slug="seonghwa" tabindex="0" role="button" aria-label="Seonghwa">
+          <text x="120" y="724" text-anchor="end" font-size="15" fill="#1a1a1a" font-weight="500">Seonghwa</text>
+          <text x="120" y="741" text-anchor="end" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 7.17</text>
+        </g>
+        <g class="cal-label" data-slug="childrens-day" tabindex="0" role="button" aria-label="Children's Day">
+          <text x="70" y="441" text-anchor="end" font-size="15" fill="#1a1a1a" font-weight="500">Children&#39;s Day</text>
+          <text x="70" y="458" text-anchor="end" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 10.1</text>
+        </g>
+        <g class="cal-label" data-slug="unified-nation" tabindex="0" role="button" aria-label="Unified Nation">
+          <text x="70" y="354" text-anchor="end" font-size="15" fill="#1a1a1a" font-weight="500">Unified Nation</text>
+          <text x="70" y="371" text-anchor="end" font-size="11" fill="#8b8b8b" font-family="-apple-system, sans-serif" letter-spacing="0.04em">lunar 10.3</text>
+        </g>
+      </g>
+
+      {{!-- Center text --}}
+      <text x="340" y="372" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#5a5a5a">12 lunar</text>
+      <text x="340" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#5a5a5a">months</text>
+      <text x="340" y="412" text-anchor="middle" font-size="10" fill="#8b8b8b" font-family="-apple-system, sans-serif">≈ 354 days</text>
+
+    </svg>
+
+    {{!-- Modal popup for holy day details --}}
+    <div class="cal-modal-bg" id="cal-modal" role="dialog" aria-modal="true" aria-labelledby="cal-mod-name">
+      <div class="cal-modal">
+        <button type="button" class="cal-modal-close" aria-label="Close">&times;</button>
+        <p class="cal-mod-eyebrow">Holy day</p>
+        <h2 class="cal-mod-name" id="cal-mod-name"></h2>
+        <p class="cal-mod-korean" id="cal-mod-korean"></p>
+        <p class="cal-mod-hanja" id="cal-mod-hanja"></p>
+        <p class="cal-mod-meta" id="cal-mod-meta"></p>
+        <p class="cal-mod-desc" id="cal-mod-desc"></p>
+        <a class="cal-mod-link" id="cal-mod-link" href="#placeholder">Read more</a>
+      </div>
+    </div>
+  </section>
+
+  {{!-- ============================================================ --}}
+  {{!-- FAQ                                                          --}}
+  {{!-- ============================================================ --}}
+  <section class="faq-section" aria-labelledby="faqTitle">
+    <div class="faq-header">
+      <p class="faq-eyebrow">Holy Days &amp; Calendar</p>
+      <h2 class="faq-title" id="faqTitle">Questions &amp; Answers</h2>
+      <p class="faq-subtitle">Key facts about the holy days, sacred calendar, and observance traditions of the Unification movement — from God's Day to Foundation Day.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <h3 class="faq-question">What are the main holy days of the Unification movement?</h3>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>
+        </summary>
+        <div class="faq-panel">
+          <p class="faq-answer">The Unification movement observes six principal <a href="https://tplegacy.net/holidays/">Holy Days</a>: <a href="https://tplegacy.net/gods-day/">God's Day</a>, <a href="https://tplegacy.net/parents-day/">True Parents' Day</a>, <a href="https://tplegacy.net/childrens-day/">True Children's Day</a>, <a href="https://tplegacy.net/day-of-all-things/">the Day of All True Things</a>, <a href="https://tplegacy.net/day-of-the-victory-of-love/">the Day of Victory of Love</a>, and <a href="https://tplegacy.net/tag/foundation-day/">Foundation Day</a>. Each of these days marks a specific providential milestone &mdash; not a cultural tradition or a seasonal festival, but a moment when a spiritual standard was established in human history for the first time. Observed according to the Heavenly Calendar &mdash; which follows the lunar cycle &mdash; their dates shift each year relative to the solar calendar.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <h3 class="faq-question">What is God's Day?</h3>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>
+        </summary>
+        <div class="faq-panel">
+          <p class="faq-answer"><a href="https://tplegacy.net/tag/gods-day/">God's Day</a> was inaugurated by Rev. Moon on January 1, 1968, at 3 a.m. at the Unification Church headquarters in Cheongpadong, Seoul, Korea. It was the first day in history, Rev. Moon taught, when God could truly be honored in His own right &mdash; not as a distant ruler, but as a Parent whose children had finally returned to Him through a foundation of restored love. The ceremony has traditionally begun at midnight, with Rev. Moon offering a prayer and then speaking to members gathered from around the world. In 1994, the name was updated to True God's Day to reflect a deeper understanding of God's nature as the Heavenly Parent.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <h3 class="faq-question">What is Foundation Day?</h3>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>
+        </summary>
+        <div class="faq-panel">
+          <p class="faq-answer"><a href="https://tplegacy.net/tag/foundation-day/">Foundation Day</a> was proclaimed on January 13, 2013 (by the Heavenly Calendar), marking what the Unification movement regards as the formal inauguration of Cheon Il Guk: the Kingdom of Heaven on earth and in heaven. It is considered the most historically significant date in the entire restoration providence &mdash; the culmination of all the preparation, suffering, and indemnity conditions laid over thousands of years of human history.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <h3 class="faq-question">What is the Day of Victory of Love?</h3>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>
+        </summary>
+        <div class="faq-panel">
+          <p class="faq-answer"><a href="https://tplegacy.net/tag/day-of-victory-of-love/">The Day of Victory of Love</a> was established on January 2, 1984, following the death of Rev. Moon's son Heung Jin Nim in a traffic accident on December 22, 1983. Rather than being observed as a day of mourning, Rev. Moon declared it a day of victory &mdash; teaching that his son's death, embraced with love and without resentment, had broken Satan's claim over human lineage in a way that could not otherwise have been achieved.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <h3 class="faq-question">When did True Parents' Day, True Children's Day, and the Day of All True Things begin?</h3>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>
+        </summary>
+        <div class="faq-panel">
+          <p class="faq-answer"><a href="https://tplegacy.net/tag/true-parents-day/">True Parents' Day</a> was the first to be established &mdash; on April 1, 1960 (by the lunar calendar), shortly after Rev. Moon's Holy Wedding with Hak Ja Han on March 1, 1960. <a href="https://tplegacy.net/tag/true-childrens-day/">True Children's Day</a> followed in October 1960. <a href="https://tplegacy.net/tag/day-of-all-true-things/">The Day of All True Things</a> came next, in June 1963 &mdash; each day building on the one before, completing the four-position foundation step by step.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <h3 class="faq-question">What is Ahn Shil Il?</h3>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>
+        </summary>
+        <div class="faq-panel">
+          <p class="faq-answer"><a href="https://tplegacy.net/the-meaning-of-ahn-shi-il/">Ahn Shil Il</a> &mdash; meaning "Day of Sabbath" or "Day of Rest" &mdash; is a weekly observance in the Unification movement marked in blue on the Heavenly Calendar. Ahn Shil Il is understood as a day of spiritual restoration &mdash; a time for families to gather, recite <a href="https://tplegacy.net/family-pledge/">the Family Pledge</a>, engage in Hoon Dok Hae, and rest from ordinary labor as a reflection of their alignment with God's creative rhythm.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <h3 class="faq-question">What is the Heavenly Calendar?</h3>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>
+        </summary>
+        <div class="faq-panel">
+          <p class="faq-answer">The Heavenly Calendar is a lunar calendar used within the Unification movement to track the dates of holy days, Ahn Shil Il, and other providential observances. Most of the movement's key dates were originally established according to the lunar calendar, which means their corresponding Gregorian dates shift each year. By observing the Heavenly Calendar, members participate in the providential rhythm consciously &mdash; ordering their weeks around Ahn Shil Il and their year around the six holy days rather than around national or commercial holidays alone.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+</div>
+
+{{!-- ================================================================ --}}
+{{!-- DAY SHEET — opens on cell tap                                     --}}
+{{!-- ================================================================ --}}
+<div class="day-sheet" id="daySheet" role="dialog" aria-modal="true" aria-labelledby="daySheetTitle" data-open="false">
+  <div class="day-sheet__panel" role="document">
+    <div class="day-sheet__handle" aria-hidden="true"></div>
+    <header class="day-sheet__head">
+      <div class="day-sheet__head-body">
+        <p class="day-sheet__eyebrow">Heavenly Calendar</p>
+        <div class="day-sheet__hero">
+          <h2 class="day-sheet__md" id="daySheetMd">—</h2>
+          <span class="day-sheet__era" id="daySheetEra"></span>
+        </div>
+        <p class="day-sheet__solar" id="daySheetSolar"></p>
+      </div>
+      <button type="button" class="day-sheet__close" id="daySheetClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <div class="day-sheet__body" id="daySheetBody"></div>
+  </div>
+</div>
+
+{{!-- ================================================================ --}}
+{{!-- EMBED ATTRIBUTION FOOTER                                          --}}
+{{!-- Visible only when iframe is embedded (?embed=1)                   --}}
+{{!-- Cannot be removed by embedders due to same-origin policy          --}}
+{{!-- ================================================================ --}}
+<footer class="embed-attribution" aria-label="True Parents Legacy attribution">
+  <a class="embed-attribution__brand" href="https://tplegacy.net/" target="_blank" rel="noopener">
+    <svg class="embed-attribution__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+      <line x1="16" y1="2" x2="16" y2="6"/>
+      <line x1="8" y1="2" x2="8" y2="6"/>
+      <line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>
+    <span class="embed-attribution__name">True Parents Legacy</span>
+  </a>
+  <span class="embed-attribution__sep" aria-hidden="true">·</span>
+  <a class="embed-attribution__link" href="https://tplegacy.net/calendar/" target="_blank" rel="noopener">
+    Open full calendar →
+  </a>
+</footer>
+
+{{!-- ================================================================ --}}
+{{!-- STYLES                                                            --}}
+{{!-- ================================================================ --}}
 <style>
-  .lunar-wrap{max-width:920px;margin:32px auto;padding:0 16px;font:16px/1.6 system-ui;overflow-x:hidden}
-  .hc-title{margin:0 0 28px 0;font-size:32px;line-height:1.2;font-weight:800;color:#0a3d81}
+:root {
+  --hc-bg: var(--bgr, #faf7f2);
+  --hc-surface: #ffffff;
+  --hc-surface-alt: #f3efe6;
+  --hc-border: #e8e2d6;
+  --hc-border-strong: #d4ccba;
+  --hc-text: #1c1a17;
+  --hc-text-muted: #5f5847;
+  --hc-text-dim: #8a816d;
+  --hc-accent: #8B5A1F;
+  --hc-ahn: #0a3d81;
+  --hc-ahn-bg: #d6e3ff;
+  --hc-ahn-soft: rgba(10, 61, 129, 0.10);
+  --hc-holy: #b51a2b;
+  --hc-holy-bg: #ffd9d9;
+  --hc-holy-soft: rgba(181, 26, 43, 0.10);
+  --hc-today: #0a3d81;
+  --hc-motion: cubic-bezier(0.2, 0, 0, 1);
+}
 
-  .lunar-today{display:flex;align-items:center;gap:16px;background:#0a3d81;color:#fff;border-radius:16px;
-    padding:16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.1);margin-bottom:18px}
-  .lday{font-size:42px;font-weight:800;min-width:64px;text-align:center;background:#ffcd3c;color:#112;border-radius:12px;padding:8px 14px}
-  .ldate{font-weight:300; font-size:12px}
-  .lspecial{margin-top:4px;min-height:1.2em;opacity:.95}
-  .lline{margin-top:2px;font-weight:400;opacity:.95;    font-size:12px}
+*, *::before, *::after { box-sizing: border-box; }
 
-  .lunar-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0}
-  .navbtn{border:0;background:#e9eef6;padding:8px 12px;border-radius:10px;cursor:pointer;font-size:18px}
-  .monthlabel{font-weight:800}
+.lunar-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--hc-text);
+  overflow-x: hidden;
+}
 
-  /* grid wrapper with outer border (doesn't clip) */
-  .lunar-grid{
-    background:#fafafa;
-    border:1px solid #eee;
-    border-radius:14px;
-    padding:12px;
-    position:relative;
-    overflow:visible; /* keep border visible while inner scrolls */
-  }
-  /* inner scroll container */
-  .grid-scroll{
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    padding-right:8px; /* space so right border never gets covered */
-  }
+/* ——— HERO ——— */
+.hc-hero { max-width: 820px; margin: 0 auto; padding: 72px 0 8px; text-align: center; }
+.hc-eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hc-accent); font-weight: 700; margin: 0 0 14px; }
+.hc-title { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 6vw, 60px); line-height: 1.05; letter-spacing: -0.01em; color: var(--hc-text); margin: 0 0 18px; }
+.hc-motto { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.55; color: var(--hc-text-muted); max-width: 54ch; margin: 0 auto; text-wrap: balance; }
+@media (max-width: 640px) {
+  .hc-hero { padding: 40px 0 4px; }
+  .hc-title { font-size: clamp(30px, 9vw, 40px); margin-bottom: 12px; }
+  .hc-motto { font-size: 14px; line-height: 1.5; max-width: 40ch; }
+}
 
-  .dows{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:6px;min-width:672px}
-  .dow{display:flex;align-items:center;justify-content:center;color:#666;font-weight:600;white-space:nowrap;user-select:none}
-  .cells{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;min-width:672px}
+/* ——— TODAY CARD ——— */
+.lunar-today {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 20px 0 28px;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, #0a3d81 0%, #072a5c 100%);
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(10, 61, 129, 0.22);
+}
+.lcube {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 112px; height: 112px;
+  background: #ffcd3c;
+  color: #0a3d81;
+  border-radius: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  /* Container query — number scales with cube width */
+  container-type: inline-size;
+  container-name: lcube;
+  overflow: hidden;
+}
+.lcube-num {
+  font-family: 'Cormorant Garamond', serif, 'Apple SD Gothic Neo', 'Noto Sans KR';
+  font-size: clamp(26px, 48cqi, 56px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.lcube-lbl {
+  font-size: clamp(8px, 9cqi, 10.5px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.75;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+.linfo { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 10px; }
+.lsolar { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; line-height: 1.2; color: rgba(255, 255, 255, 0.95); margin: 0; }
+.lera { display: inline-block; padding: 5px 14px; background: rgba(255, 255, 255, 0.14); border-radius: 999px; font-size: 13px; font-weight: 500; color: rgba(255, 255, 255, 0.95); align-self: flex-start; }
 
-  .cell{position:relative;border:1px solid #eee;border-radius:10px;min-height:112px;background:#fff;padding:15px;
-    display:flex;flex-direction:column;gap:10px}
-  .cell.muted{background:#f6f7f9;border-style:dashed;color:#8a8f98}
-  .cell.muted .gdate{color:#8a8f98}
+.levents { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+.levents:empty { display: none; }
+.lchip { display: inline-flex; align-items: center; gap: 7px; padding: 6px 13px 6px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: 0.01em; }
+.lchip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--chip-accent, #fff); flex-shrink: 0; }
+.lchip.ahn  { background: rgba(214, 227, 255, 0.18); color: #d6e3ff; --chip-accent: #d6e3ff; }
+.lchip.holy { background: rgba(255, 205, 60, 0.18);  color: #ffcd3c; --chip-accent: #ffcd3c; }
 
-  /* highlight today inside the cell (not outline) so it's never clipped */
-  .cell.today{box-shadow:inset 0 0 0 2px #0a3d81}
+@media (max-width: 640px) {
+  .lunar-today { gap: 16px; padding: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .lcube { width: 76px; height: 76px; border-radius: 14px; }
+  .linfo { min-width: 0; flex: 1 1 160px; gap: 8px; }
+  .lsolar { font-size: 18px; line-height: 1.25; }
+  .lera { font-size: 12px; padding: 4px 11px; }
+  .lchip { font-size: 12px; padding: 5px 11px 5px 9px; }
+}
 
-  /* Top line: day left, lunar right */
-  .topline{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between; /* day ←   → (M.D) */
-    gap:6px;
-    flex-wrap:nowrap;
-    width:100%;
-  }
-  .gdate{ font-weight:800; color:#222; }
-  .lunar-inline{
-    font-weight:700; font-size:13px; color:#0a3d81; opacity:.95;
-    white-space:nowrap; flex:0 0 auto;
-  }
+/* ——— MONTH NAV ——— */
+.lunar-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px; }
+.navbtn { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--hc-border); background: var(--hc-surface); color: var(--hc-text); cursor: pointer; transition: border-color .15s, background .15s; }
+.navbtn:hover { border-color: var(--hc-border-strong); background: var(--hc-surface-alt); }
+.navbtn svg { width: 16px; height: 16px; }
+.monthlabel { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; min-width: 200px; text-align: center; color: var(--hc-text); }
 
-  /* Labels row below topline */
-  .labels-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px 10px;
-    align-items:flex-start;
-  }
-  .tag{
-    font-weight:700;
-    font-size:10px;
-    line-height:1.1;
-    padding-left:0; /* no bg/border, just text */
-  }
-  .tag.blue{ color:#0b3fad; }
-  .tag.red{  color:#880007; }
+/* ——— GRID ——— */
+.lunar-grid { background: var(--hc-surface-alt); border: 1px solid var(--hc-border); border-radius: 20px; padding: 10px; margin-bottom: 18px; }
+.grid-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; min-width: 0; }
+.grid-scroll::-webkit-scrollbar { display: none; }
+.dows { display: grid; grid-template-columns: repeat(7, 1fr); background: var(--hc-surface-alt); min-width: 720px; }
+.dow { display: flex; align-items: center; justify-content: center; padding: 10px 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hc-text-muted); user-select: none; text-align: center; }
+.dow.weekend { color: var(--hc-holy); opacity: 0.75; }
+.cells { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--hc-border); min-width: 720px; border: 1px solid var(--hc-border); border-radius: 12px; overflow: hidden; margin-top: 6px; }
 
-  /* allow labels to wrap to next line and break long words */
-  .labels-row .tag{
-    display:inline;
-    font-weight:400;
-    font-size:10px;
-    line-height:1.2;
-    padding-left:0;
-    white-space:normal;
-    overflow-wrap:anywhere;
-    word-break:break-word;
-  }
+.cell { position: relative; min-width: 0; aspect-ratio: 1 / 1; padding: 8px 10px 10px; background: var(--hc-surface); display: flex; flex-direction: column; gap: 4px; overflow: hidden; transition: background .15s var(--hc-motion); -webkit-tap-highlight-color: transparent; }
+.cell.has-events { cursor: pointer; transition: background .15s; }
+.cell.has-events:hover { background: color-mix(in srgb, var(--hc-surface) 94%, black); }
+.cell.has-events:focus-visible { outline: 2px solid var(--hc-ahn); outline-offset: -2px; z-index: 2; }
+.cell.muted { background: var(--hc-surface); cursor: default; }
+.cell.muted .gdate, .cell.muted .lunar-inline { color: var(--hc-text-dim); opacity: 0.45; }
 
-  .cell.holy{border-color:#ff7070;background:#ffdfdc}
-  .cell.ahn{border-color:#bbd2ff;background:#eef4ff}
+.cell.today .gdate { font-weight: 700; color: var(--hc-today); }
+.cell.today .lunar-inline {
+  display: inline-grid; place-items: center;
+  width: 36px; height: 36px;
+  padding: 0;
+  background: #ffcd3c; color: #0a3d81;
+  border-radius: 50%;
+  font-weight: 700; font-size: 13px; line-height: 1;
+  opacity: 1;
+  box-shadow: 0 2px 6px rgba(10, 61, 129, 0.18);
+}
 
-  /* Legend */
-  .legend{display:flex;align-items:center;gap:14px;margin-top:14px;color:#333;flex-wrap:wrap}
-  .legend-item-wrap{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
-  .legend-swatch{display:inline-block;width:14px;height:14px;border-radius:3px}
-  .legend-swatch.blue{background:#1062ff}
-  .legend-swatch.red{background:#e33}
-  .legend-text{font-size:14px}
-  .nowrap{white-space:nowrap}
-  .c-blue{color:#1062ff}
-  .c-red{color:#e33}
+.topline { display: flex; align-items: center; justify-content: space-between; gap: 6px; min-height: 30px; }
+.gdate { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; line-height: 1; color: var(--hc-text); }
+.lunar-inline { font-size: 15px; font-weight: 600; color: var(--hc-ahn); font-variant-numeric: tabular-nums; white-space: nowrap; opacity: 0.85; }
 
-  /* Mobile */
-  @media (max-width:700px){
-    .grid-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-    .dows,.cells{min-width:720px}
-    .cell{min-height:100px}
-    .lunar-today .lday{font-size:34px;min-width:56px}
-    .tag{font-size:11px}
-    .labels-row .tag{font-size:9px;line-height:1.2}
-    .legend{gap:10px}
-    .legend-item-wrap{gap:6px}
-     }
+.labels-row { display: flex; flex-direction: column; gap: 2px; margin-top: auto; min-width: 0; max-width: 100%; }
 
-  .hc-sub{
-    font-size:16px;
-    font-weight:500;
-    margin-left:8px;
-    color:#445;
-    opacity:.9;
-    white-space:nowrap;
+.evt-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: stretch;
+  text-align: center;
+  border: 1px solid transparent;
+}
+.evt-btn.ahn  { background: var(--hc-ahn);  color: #fff; }
+.evt-btn.holy { background: var(--hc-holy); color: #fff; }
+.evt-btn.note { background: transparent; color: var(--hc-text-muted); border-color: var(--hc-border-strong); }
+.evt-arrow { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 600; line-height: 0.8; opacity: 0.9; }
 
-    
-  }
+/* ——— DAY SHEET ——— */
+.day-sheet { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.45); z-index: 10000; opacity: 0; pointer-events: none; transition: opacity .2s ease; backdrop-filter: blur(3px); overscroll-behavior: contain; touch-action: none; }
+.day-sheet[data-open="true"] { opacity: 1; pointer-events: auto; }
+.day-sheet__panel { background: var(--hc-surface); width: 100%; max-width: 520px; max-height: min(85vh, 640px); border-radius: 20px; overflow-y: auto; overscroll-behavior: contain; touch-action: auto; transform: translateY(20px) scale(0.96); opacity: 0; transition: transform .25s cubic-bezier(0.2, 0, 0, 1), opacity .2s ease; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25); }
+.day-sheet[data-open="true"] .day-sheet__panel { transform: translateY(0) scale(1); opacity: 1; }
+.day-sheet__handle { display: none; width: 40px; height: 4px; background: var(--hc-border-strong); border-radius: 2px; margin: 10px auto 0; }
+.day-sheet__head { padding: 14px 24px 20px; border-bottom: 1px solid var(--hc-border); display: flex; align-items: flex-start; gap: 14px; }
+.day-sheet__head-body { flex: 1; }
+.day-sheet__eyebrow { font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--hc-ahn); font-weight: 700; margin: 0 0 8px; }
+.day-sheet__hero { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 0 0 10px; }
+.day-sheet__md { font-family: 'Cormorant Garamond', serif, 'Apple SD Gothic Neo', 'Noto Sans KR'; font-size: 40px; font-weight: 500; line-height: 1; letter-spacing: -0.02em; color: var(--hc-text); margin: 0; }
+.day-sheet__era { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; color: var(--hc-ahn); line-height: 1.2; }
+.day-sheet__solar { font-size: 13px; color: var(--hc-text-muted); margin: 0; }
+.day-sheet__close { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--hc-surface-alt); color: var(--hc-text-muted); cursor: pointer; display: grid; place-items: center; padding: 0; transition: background .15s; }
+.day-sheet__close svg { width: 16px; height: 16px; display: block; }
+.day-sheet__close:hover { background: color-mix(in srgb, var(--hc-text) 10%, transparent); color: var(--hc-text); }
+.day-sheet__body { padding: 16px 24px 28px; display: flex; flex-direction: column; gap: 10px; }
+.day-sheet__event {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  gap: 12px;
+  padding: 12px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--hc-border);
+  border-radius: 0;
+  transition: background .15s;
+}
+.day-sheet__event:last-child { border-bottom: 0; }
+.day-sheet__event[data-t="ahn"]  { --ev-color: var(--hc-ahn); }
+.day-sheet__event[data-t="holy"] { --ev-color: var(--hc-holy); }
+.day-sheet__event::before { content: ""; flex-shrink: 0; width: 8px; height: 8px; margin-top: 7px; border-radius: 50%; background: var(--ev-color, var(--hc-holy)); }
+.day-sheet__event:hover .day-sheet__event-name { color: var(--ev-color); }
+.day-sheet__event-body { flex: 1; }
+.day-sheet__event-name { font-size: 14.5px; font-weight: 600; margin: 0 0 2px; transition: color .15s; }
+.day-sheet__event-meta { font-size: 12.5px; color: var(--hc-text-muted); margin: 0; }
+.day-sheet__empty { padding: 16px; text-align: center; color: var(--hc-text-muted); font-size: 14px; font-style: italic; }
 
-  .hc-motto{
-    margin:4px 0 20px 0;
-    font-size:13px;
-    line-height:1.5;
-    color:#444;
-    max-width:820px;
-  }
+/* ——— LEGEND ——— */
+.legend { display: flex; flex-wrap: wrap; gap: 14px 22px; padding: 14px 2px; margin-bottom: 40px; }
+.legend-item { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--hc-text-muted); }
+.legend-swatch { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+.legend-swatch.blue { background: var(--hc-ahn); }
+.legend-swatch.red  { background: var(--hc-holy); }
+.legend-item strong { margin-right: 4px; }
+.legend-note { opacity: 0.75; }
+.c-blue { color: var(--hc-ahn); font-weight: 700; }
+.c-red  { color: var(--hc-holy); font-weight: 700; }
 
+/* ——— UPCOMING ——— */
+.upcoming-section { margin: 0 0 48px; }
+.upcoming-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.upcoming-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 28px); font-weight: 500; margin: 0; letter-spacing: -0.01em; }
+.upcoming-hint { font-size: 13px; color: var(--hc-text-dim); }
+.upcoming-list { display: grid; gap: 8px; }
+.upcoming-item { display: grid; grid-template-columns: 74px 1fr auto; gap: 16px; align-items: center; padding: 14px 18px; background: var(--hc-surface); border: 1px solid var(--hc-border); border-radius: 12px; transition: transform .15s, border-color .15s, box-shadow .15s; border-left: 4px solid var(--ev-color, var(--hc-accent)); }
+.upcoming-item:hover { transform: translateY(-1px); border-color: var(--hc-border-strong); box-shadow: 0 4px 14px rgba(0,0,0,0.05); }
+.upcoming-item[data-type="ahn"]  { --ev-color: var(--hc-ahn); }
+.upcoming-item[data-type="holy"] { --ev-color: var(--hc-holy); }
+.upcoming-item[data-type="note"] { --ev-color: var(--hc-text-muted); }
+.upcoming-date { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; }
+.upcoming-day { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; color: var(--ev-color); }
+.upcoming-weekday { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hc-text-dim); margin-top: 4px; font-weight: 700; }
+.upcoming-name { font-size: 15px; font-weight: 600; margin-bottom: 3px; color: var(--hc-text); }
+.upcoming-meta { font-size: 12.5px; color: var(--hc-text-muted); }
+.upcoming-meta .chip { display: inline-block; padding: 0; background: transparent; color: var(--ev-color); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 10px; }
+.upcoming-in { font-size: 12px; color: var(--hc-text-dim); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.upcoming-empty { padding: 20px; text-align: center; color: var(--hc-text-muted); font-size: 13px; }
 
+/* ——— EMBED CTA ——— */
+.calendar-embed-cta { display: flex; justify-content: center; margin: 24px 0 48px; }
+.embed-btn { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--hc-text); border: 1px solid var(--hc-border); border-radius: 999px; padding: 10px 22px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; transition: all .15s; }
+.embed-btn:hover { border-color: var(--hc-accent); color: var(--hc-accent); }
+.embed-btn.small { padding: 8px 18px; font-size: 12.5px; }
+.embed-btn svg { width: 14px; height: 14px; }
 
+.embed-dialog { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: flex; align-items: center; justify-content: center; z-index: 9999; backdrop-filter: blur(3px); }
+.embed-dialog[hidden] { display: none !important; }
+.embed-dialog-inner { background: var(--hc-surface); max-width: 600px; width: calc(100% - 32px); border-radius: 18px; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+.embed-dialog-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.embed-dialog-header h2 { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; }
+.embed-close { width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; color: var(--hc-text-muted); font-size: 22px; cursor: pointer; }
+.embed-close:hover { background: var(--hc-surface-alt); }
+.embed-code { width: 100%; min-height: 130px; font-family: ui-monospace, Menlo, monospace; font-size: 12px; padding: 12px; border-radius: 8px; border: 1px solid var(--hc-border); background: var(--hc-surface-alt); color: var(--hc-text); resize: vertical; margin: 8px 0 0; }
+.embed-actions { margin-top: 12px; display: flex; justify-content: flex-end; }
+.embed-note { margin-top: 10px; font-size: 12px; color: var(--hc-text-muted); line-height: 1.5; }
+.embed-note code { background: var(--hc-surface-alt); border-radius: 4px; padding: 1px 5px; font-size: 11px; }
+
+/* ——— EMBED MODE ——— */
+/* Hide our own optional sections inside the calendar template */
+body.is-embed .hc-hero,
+body.is-embed .calendar-embed-cta,
+body.is-embed .faq-section,
+body.is-embed .cal-wheel-section,
+body.is-embed .upcoming-section { display: none; }
+
+/* Hide ALL site-level chrome (header / nav / footer / subscribe forms / portal),
+   regardless of class name, EXCEPT our embed-attribution footer.
+   The :not(.embed-attribution) selector keeps the brand bar visible. */
+body.is-embed header,
+body.is-embed nav,
+body.is-embed footer:not(.embed-attribution),
+body.is-embed .gh-head,
+body.is-embed .gh-foot,
+body.is-embed .gh-navigation,
+body.is-embed .site-header,
+body.is-embed .site-footer,
+body.is-embed .site-nav,
+body.is-embed .subscribe-form,
+body.is-embed .members-form,
+body.is-embed .floating-header,
+body.is-embed .gh-portal-triggerbtn-wrapper,
+body.is-embed [data-portal] { display: none !important; }
+
+/* Reset chrome paddings/margins so calendar sits flush in the iframe */
+html.is-embed,
+body.is-embed {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+body.is-embed .lunar-wrap { margin: 0; padding: 8px 8px 64px; }
+
+/* ——— EMBED ATTRIBUTION (only visible when embedded) ——— */
+.embed-attribution { display: none; }
+body.is-embed .embed-attribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #0a3d81 0%, #072a5c 100%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 100;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+}
+body.is-embed .embed-attribution a {
+  color: #ffcd3c;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity .15s;
+}
+body.is-embed .embed-attribution a:hover { opacity: 0.85; text-decoration: underline; }
+body.is-embed .embed-attribution__brand { font-weight: 700; }
+body.is-embed .embed-attribution__icon { width: 14px; height: 14px; }
+body.is-embed .embed-attribution__sep { color: rgba(255,255,255,0.4); }
+body.is-embed .embed-attribution__link { font-weight: 500; }
+
+/* ——— CAL WHEEL ——— */
+.cal-section { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; color: #1a1a1a; }
+.cal-eyebrow { font-size: 10px; letter-spacing: 0.18em; color: #8b8b8b; text-align: center; margin: 0 0 12px; text-transform: uppercase; }
+.cal-heading { font-family: Georgia, "Times New Roman", serif; font-size: 28px; font-weight: 500; text-align: center; margin: 0 0 10px; line-height: 1.15; letter-spacing: -0.01em; color: #1a1a1a; }
+.cal-subtitle { font-size: 14px; color: #5a5a5a; text-align: center; margin: 0 auto 26px; max-width: 480px; line-height: 1.65; }
+.cal-svg { width: 100%; height: auto; display: block; max-width: 720px; margin: 0 auto; }
+.cal-sector { transition: opacity 0.2s; }
+.cal-sector:hover { opacity: 0.55; }
+.cal-dot { cursor: pointer; transition: r 0.15s, stroke-width 0.15s; }
+.cal-dot:hover, .cal-dot:focus-visible { stroke: #BA7517; stroke-width: 3.5; outline: none; }
+.cal-label { cursor: pointer; outline: none; }
+.cal-label:hover text, .cal-label:focus-visible text { fill: #BA7517 !important; }
+
+.cal-modal-bg { position: fixed; inset: 0; background: rgba(20, 18, 14, 0.55); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 9999; opacity: 0; transition: opacity 0.2s; }
+.cal-modal-bg.show { display: flex; opacity: 1; }
+.cal-modal { background: #faf6ee; border: 1px solid #e5e2da; border-radius: 14px; max-width: 460px; width: 100%; padding: 32px 32px 28px; box-shadow: 0 12px 40px rgba(0,0,0,0.18); transform: translateY(8px); transition: transform 0.2s; position: relative; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+.cal-modal-bg.show .cal-modal { transform: translateY(0); }
+.cal-modal-close { position: absolute; top: 14px; right: 14px; width: 32px; height: 32px; border: none; background: transparent; cursor: pointer; font-size: 22px; color: #999; line-height: 1; padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.15s, color 0.15s; }
+.cal-modal-close:hover { background: #e5e2da; color: #1a1a1a; }
+.cal-mod-eyebrow { font-size: 10px; letter-spacing: 0.18em; color: #BA7517; text-transform: uppercase; margin: 0 0 8px; font-weight: 500; }
+.cal-mod-name { font-family: Georgia, "Times New Roman", serif; font-size: 24px; font-weight: 500; margin: 0 0 6px; line-height: 1.2; color: #1a1a1a; }
+.cal-mod-korean { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 16px; color: #5a4a2a; margin: 0 0 4px; font-weight: 400; }
+.cal-mod-hanja { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 13px; color: #8b8b8b; margin: 0 0 16px; letter-spacing: 0.04em; }
+.cal-mod-meta { font-size: 11px; letter-spacing: 0.12em; color: #8b8b8b; text-transform: uppercase; margin: 0 0 14px; padding: 8px 0; border-top: 1px solid #e5e2da; border-bottom: 1px solid #e5e2da; }
+.cal-mod-desc { font-size: 14px; line-height: 1.65; color: #2a2a2a; margin: 0 0 20px; font-family: Georgia, "Times New Roman", serif; }
+.cal-mod-link { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; background: #2d7d4f; color: #fff; text-decoration: none; border-radius: 6px; font-size: 13px; font-weight: 500; transition: background 0.15s; }
+.cal-mod-link:hover { background: #246340; }
+.cal-mod-link::after { content: '→'; font-size: 14px; }
+
+@media (max-width: 600px) {
+  .cal-section { padding: 2rem 1rem; }
+  .cal-heading { font-size: 22px; }
+  .cal-modal { padding: 24px 22px 22px; }
+  .cal-mod-name { font-size: 20px; }
+  .cal-svg { overflow: visible; }
+  .cal-svg .cal-label text:first-child { font-size: 22px; }
+  .cal-svg .cal-label text:last-child { font-size: 16px; }
+  .cal-svg .cal-month-numbers text { font-size: 18px; }
+
+  /* Wheel section: left-align headings on mobile */
+  .cal-section .cal-eyebrow,
+  .cal-section .cal-heading,
+  .cal-section .cal-subtitle { text-align: left; }
+  .cal-section .cal-subtitle { margin-left: 0; margin-right: 0; max-width: 100%; }
+}
+
+/* ——— FAQ ——— */
+.faq-section { max-width: 820px; margin: 80px auto; padding: 0 20px; }
+.faq-header { text-align: center; margin-bottom: 36px; }
+.faq-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hc-accent); margin: 0 0 12px; }
+.faq-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 500; color: var(--hc-text); margin: 0 0 12px; line-height: 1.15; letter-spacing: -0.01em; }
+.faq-subtitle { font-size: 0.95rem; color: var(--hc-text-muted); margin: 0 auto; max-width: 520px; line-height: 1.6; }
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item { background: var(--hc-surface); border: 1px solid var(--hc-border); border-radius: 14px; overflow: hidden; transition: box-shadow .2s, border-color .2s; }
+.faq-item[open] { border-color: var(--hc-border-strong); box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+.faq-trigger { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; cursor: pointer; list-style: none; min-height: 60px; }
+.faq-trigger::-webkit-details-marker { display: none; }
+.faq-trigger:hover { background: var(--hc-surface-alt); }
+.faq-question { font-size: 0.95rem; font-weight: 600; color: var(--hc-text); line-height: 1.45; margin: 0; flex: 1; }
+.faq-icon { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--hc-surface-alt); color: var(--hc-text-muted); display: grid; place-items: center; transition: background .2s, color .2s, transform .25s var(--hc-motion); }
+.faq-item[open] .faq-icon { background: var(--hc-accent); color: #fff; transform: rotate(180deg); }
+.faq-icon svg { width: 14px; height: 14px; }
+.faq-panel { padding: 0 20px 20px; }
+.faq-answer { font-size: 0.95rem; line-height: 1.75; color: var(--hc-text-muted); margin: 0; }
+.faq-answer a { color: #1d4ed8; text-decoration: underline; text-underline-offset: 2px; }
+.faq-answer a:hover { text-decoration-thickness: 2px; }
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 768px) {
+  .lunar-today { padding: 18px 18px; gap: 16px; }
+  .cell { padding: 6px 7px 8px; }
+  .gdate { font-size: 15px; }
+  .lunar-inline { font-size: 12px; }
+  .dow { padding: 10px 8px; font-size: 10px; }
+  .evt-btn { padding: 3px 5px; font-size: 8.5px; letter-spacing: 0.02em; gap: 2px; }
+  .evt-arrow { font-size: 11px; }
+  .upcoming-item { grid-template-columns: 60px 1fr; padding: 12px 14px; }
+  .upcoming-in { grid-column: 2; font-size: 11px; margin-top: 4px; }
+  .upcoming-day { font-size: 26px; }
+  .faq-section { margin: 60px auto; }
+  .faq-trigger { padding: 16px; }
+  .faq-question { font-size: 0.9rem; }
+  .faq-answer { font-size: 0.9rem; line-height: 1.7; }
+
+  /* FAQ section: left-align headings on mobile */
+  .faq-header { text-align: left; }
+  .faq-subtitle { margin-left: 0; margin-right: 0; max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
 </style>
 
+{{!-- ================================================================ --}}
+{{!-- SCRIPTS                                                          --}}
+{{!-- ================================================================ --}}
 <script>
-(function(){
+(function () {
   if (location.pathname.startsWith('/ghost')) return;
 
-  const JSON_URL = '{{asset "built/lunar.json"}}' + '?v=' + Date.now();
+  // ============================================================
+  // EMBED MODE detection
+  // ============================================================
+  const params = new URLSearchParams(location.search);
+  const IS_EMBED = params.get('embed') === '1';
+  if (IS_EMBED) {
+    document.documentElement.classList.add('is-embed');
+    document.body.classList.add('is-embed');
+  }
 
-  
+  const SITE_URL = '{{@site.url}}';
+  const JSON_URL = '{{asset "built/lunar.json"}}' + '?v=' + Date.now();
   const FALLBACK_ANCHORS = [
     { date: '2025-01-01', lunar_md: '12.2' },
     { date: '2025-10-21', lunar_md: '9.1' },
     { date: '2025-11-20', lunar_md: '10.1' }
   ];
 
+  // ============================================================
+  // Holiday data for the wheel modal
+  // ============================================================
+  const HOLIDAYS_INFO = {
+    'gods-day':         { name: "God's Day",                                      korean: "하나님의 날",        hanja: "神의 날",       lunar: "1.1",  desc: "Established by True Father in 1968 as the spiritual reset of the providential year. The lunar new year is set apart to honor God as the central origin and original parent of all creation.", url: "/gods-day/" },
+    'tp-birthday':      { name: "True Parents' Birthday",                         korean: "참부모님 탄신일",    hanja: "眞父母誕辰日",   lunar: "1.6",  desc: "Anniversary of the birth of Sun Myung Moon on the 6th day of the first lunar month, 1920. After the Holy Wedding in 1960, the day was extended to honor both True Parents.", url: "/tag/true-parents-birthday/" },
+    'foundation-day':   { name: "Foundation Day",                                 korean: "기원절",             hanja: "基元節",         lunar: "1.13", desc: "Declared on January 13, 2013 as the inauguration day of Cheon Il Guk — the substantial kingdom of God on earth. Marks the entry of God's kingdom into providential history and the start of a new heavenly calendar.", url: "/foundation-day-the-start-of-a-new-history/" },
+    'holy-wedding':     { name: "True Parents' Holy Wedding",                     korean: "참부모 성혼식",      hanja: "眞父母 聖婚式",  lunar: "3.16", desc: "Anniversary of the Holy Wedding of Sun Myung Moon and Hak Ja Han in 1960. This day established the True Parents and laid the foundation for the Blessing tradition.", url: "/true-parents-holy-wedding/" },
+    'all-true-things':  { name: "Day of All True Things",                         korean: "참만물의 날",        hanja: "眞萬物의 날",    lunar: "5.1",  desc: "Established in 1963 to celebrate the restoration of the natural world and the rightful place of creation under True Parents' lineage. The third of the original four foundational days, after Parents' Day and Children's Day.", url: "/true-day-of-all-things/" },
+    'cig-foundation':   { name: "Declaration Day of God's Eternal Blessing",      korean: "칠일절",             hanja: "七一節",         lunar: "7.1",  desc: "Also called 7.1 Jeol. Marks True Father's foundational declarations after the Heungnam release period. Commemorates the providential establishment that opened the path to the Cheon Il Guk era.", url: "/declaration-day-of-gods-eternal-blessing/" },
+    'cosmic-sabbath':   { name: "Cosmic Sabbath",                                 korean: "칠팔절",             hanja: "七八節",         lunar: "7.7",  desc: "Cosmic Sabbath for the Parents of Heaven and Earth. Established as the eternal seventh day of providential rest, marking the completion of the foundation for the True Parents of Heaven, Earth and Humankind.", url: "/declaration-of-the-realm-of-the-cosmic-sabbath-for-the-parents-of-heaven-and-earth/" },
+    'seonghwa':         { name: "Anniversary of True Father's Seonghwa",          korean: "성화",               hanja: "聖和",           lunar: "7.17", desc: "Commemorates True Father's ascension to the spirit world on August 17, 2012 (lunar 7.17). The term Seonghwa — \"holy harmony\" — replaces conventional language of death, framing the passage as a sacred return rather than an ending.", url: "/mother-speaks-of-fathers-forty-day-transition/" },
+    'childrens-day':    { name: "True Children's Day",                            korean: "참자녀의 날",        hanja: "眞子女의 날",    lunar: "10.1", desc: "Established in 1960 alongside True Parents' Day. Honors the True Children — the lineage born of the restored True Parents — and all blessed children who inherit the same providential heritage.", url: "/childrens-day/" },
+    'unified-nation':   { name: "Foundation Day for the Unified Nation",          korean: "천일국 기원절",      hanja: "天一國 統一節",  lunar: "10.3", desc: "Foundation Day for the Unified Nation of Heaven and Earth. Honors the cosmological foundation upon which Cheon Il Guk stands and the unification of the earthly and heavenly realms under God's parental sovereignty.", url: "/foundation-day-for-the-nation-of-the-unified-world/" }
+  };
 
-  function parseMD(md){ const [m,d]=String(md).split('.').map(n=>parseInt(n,10)); return {m,d}; }
-  function ymd(d){ const y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,'0'), da=String(d.getDate()).padStart(2,'0'); return `${y}-${m}-${da}`; }
-  function toUTC(date){ return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())); }
-  function normalizeAnchors(arr){
-    return (arr||[]).map(a=>{
-      if(!a||!a.date||!a.lunar_md) return null;
-      const [yy,mm,dd]=String(a.date).split('-').map(Number);
-      if(!yy||!mm||!dd) return null;
-      const {m,d}=parseMD(a.lunar_md); if(!m||!d) return null;
-      const local=new Date(yy,mm-1,dd);
-      return {date:a.date, dateUTC:toUTC(local), m, d};
-    }).filter(Boolean).sort((x,y)=>x.dateUTC-y.dateUTC);
-  }
-  function findAnchorFor(ANCHORS, targetUTC){
-    let chosen=null; for(const a of ANCHORS){ if(a.dateUTC.getTime()<=targetUTC.getTime()) chosen=a; else break; }
-    return chosen || ANCHORS[0] || null;
-  }
+  // ============================================================
+  // Wheel modal
+  // ============================================================
+  const calModal = document.getElementById('cal-modal');
+  if (calModal) {
+    const calNameEl   = document.getElementById('cal-mod-name');
+    const calKoreanEl = document.getElementById('cal-mod-korean');
+    const calHanjaEl  = document.getElementById('cal-mod-hanja');
+    const calMetaEl   = document.getElementById('cal-mod-meta');
+    const calDescEl   = document.getElementById('cal-mod-desc');
+    const calLinkEl   = document.getElementById('cal-mod-link');
+    const calCloseBtn = calModal.querySelector('.cal-modal-close');
+    let calLastFocus = null;
 
-
-  function lunarMDFromAnchors(ANCHORS, gregDate){
-  
-  
-
-  if (typeof KoreanLunarCalendar === 'undefined') {
-    
-    console.warn('KoreanLunarCalendar not loaded; using fallback lunar approximation.');
-    return null;
-  }
-
-  const cal = new KoreanLunarCalendar();
-
-  // setSolarDate(year, month, day) — місяць 1-12, день 1-31
-  cal.setSolarDate(
-    gregDate.getFullYear(),
-    gregDate.getMonth() + 1,
-    gregDate.getDate()
-  );
-
-  const lunar = cal.getLunarCalendar(); 
-  // { year, month, day, intercalation }  
-
-  return { m: lunar.month, d: lunar.day };
-}
-
-
-
- 
-    // Data holders
-  let ANCHORS = [], HOLIDAYS = {};
-  let REC = [];         // recurring lunar holidays (M.D)
-  let REC_NOTES = [];   // recurring lunar "normal" days (M.D)
-
-  
-  let AHN_SEED_DATE = null;   
-  let AHN_INTERVAL_DAYS = 8;  
-
-  
-  function isAhnByGregorian(date){
-    if (!AHN_SEED_DATE) return false;
-    const dUTC = toUTC(date);
-    const seedUTC = toUTC(AHN_SEED_DATE);
-    const diffDays = Math.round((dUTC - seedUTC) / 86400000);
-    
-    return ((diffDays % AHN_INTERVAL_DAYS) + AHN_INTERVAL_DAYS) % AHN_INTERVAL_DAYS === 0;
-  }
-
-
-
-
-
-
-
-  // Recurring lunar holiday names match by M.D (red)
-  function matchRecurringLunar(md){
-    if(!md || !REC.length) return [];
-    const key = `${md.m}.${md.d}`;
-    return REC.filter(h => String(h.lunar_md) === key).map(h => h.name);
-  }
-  // NEW: recurring lunar "normal" notes (no special color)
-  function matchRecurringLunarNotes(md){
-    if(!md || !REC_NOTES.length) return [];
-    const key = `${md.m}.${md.d}`;
-    return REC_NOTES.filter(h => String(h.lunar_md) === key).map(h => h.name);
-  }
-
-  const gridEl=document.getElementById('grid');
-  const monthLabel=document.getElementById('monthLabel');
-  const ldayEl=document.getElementById('lday');
-  const ldateHumanEl=document.getElementById('ldateHuman');
-  const lspecialEl=document.getElementById('lspecial');
-  const lunarMdEl=document.getElementById('lunarMD');
-  const cheonYearEl=document.getElementById('cheonYearLabel');
-
-  let view=new Date(); view.setDate(1);
-  document.getElementById('prevMonth').addEventListener('click', ()=>{ view.setMonth(view.getMonth()-1); renderMonth(); });
-  document.getElementById('nextMonth').addEventListener('click', ()=>{ view.setMonth(view.getMonth()+1); renderMonth(); });
-
-  
-  
-    // --- Cheon Il Guk year logic ---
-
-  // find Lunar New Year (1.1) within a given solar year
-  function findLunarNewYearInSolarYear(year){
-    const start = new Date(year, 0, 1); // Jan 1
-    for(let i=0; i<366; i++){
-      const d = new Date(year, 0, 1 + i);
-      if (d.getFullYear() !== year) break;
-      const md = lunarMDFromAnchors(ANCHORS, d);
-      if (md && md.m === 1 && md.d === 1){
-        return d;
+    function openCalModal(slug) {
+      const d = HOLIDAYS_INFO[slug];
+      if (!d) return;
+      calLastFocus = document.activeElement;
+      calNameEl.textContent   = d.name;
+      calKoreanEl.textContent = d.korean;
+      calHanjaEl.textContent  = d.hanja;
+      calMetaEl.textContent   = 'Lunar ' + d.lunar;
+      calDescEl.textContent   = d.desc;
+      calLinkEl.setAttribute('href', d.url);
+      calModal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      calCloseBtn && calCloseBtn.focus();
+    }
+    function closeCalModal() {
+      calModal.classList.remove('show');
+      document.body.style.overflow = '';
+      if (calLastFocus && document.contains(calLastFocus)) {
+        calLastFocus.focus();
+        calLastFocus = null;
       }
     }
-    return null; // fallback if not found
+
+    document.querySelectorAll('.cal-wheel-section [data-slug]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        openCalModal(e.currentTarget.getAttribute('data-slug'));
+      });
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openCalModal(e.currentTarget.getAttribute('data-slug'));
+        }
+      });
+    });
+
+    calCloseBtn && calCloseBtn.addEventListener('click', closeCalModal);
+    calModal.addEventListener('click', function (e) {
+      if (e.target === calModal) closeCalModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && calModal.classList.contains('show')) closeCalModal();
+    });
+
+    // ============================================================
+    // WebMCP — holy day details
+    // ============================================================
+    if (typeof navigator !== 'undefined' && navigator.modelContext) {
+      navigator.modelContext.registerTool({
+        name: 'get_holy_day_details',
+        description: 'Get full details about one of the ten canonical Holy Days of Cheon Il Guk: name, Korean (한글), Hanja (漢字), lunar date, description of providential significance, and link to full article. Use when user asks "what is Foundation Day", "tell me about God\'s Day", "explain Seonghwa", etc.',
+        inputSchema: {
+          type: 'object',
+          required: ['slug'],
+          properties: {
+            slug: {
+              type: 'string',
+              description: 'Holy day identifier. Use "list" to return all ten.',
+              enum: ['gods-day','tp-birthday','foundation-day','holy-wedding','all-true-things','cig-foundation','cosmic-sabbath','seonghwa','childrens-day','unified-nation','list']
+            }
+          }
+        },
+        async execute(args) {
+          const slug = args && args.slug;
+          if (slug === 'list') {
+            const all = Object.keys(HOLIDAYS_INFO).map(function (k) {
+              const h = HOLIDAYS_INFO[k];
+              return { slug: k, name: h.name, lunar: h.lunar, korean: h.korean, hanja: h.hanja };
+            });
+            return { content: [{ type: 'text', text: JSON.stringify(all, null, 2) }] };
+          }
+          const h = HOLIDAYS_INFO[slug];
+          if (!h) return { content: [{ type: 'text', text: 'Unknown slug: ' + slug }] };
+          return {
+            content: [{
+              type: 'text',
+              text: JSON.stringify({
+                slug: slug, name: h.name, korean: h.korean, hanja: h.hanja,
+                lunar_date: h.lunar, description: h.desc,
+                url: SITE_URL.replace(/\/$/, '') + h.url
+              }, null, 2)
+            }]
+          };
+        }
+      });
+    }
   }
 
-  // compute Cheon Il Guk year for a given date
-  // rule: year starts on lunar 1.1; base offset: 2013 = 1st year
-  function getCheonYear(date){
-    const solarYear = date.getFullYear();
-    const lny = findLunarNewYearInSolarYear(solarYear);
-
-    // fallback: simple mapping if lunar new year not found
-    if (!lny){
-      return solarYear - 2012;
-    }
-
-    // before lunar new year ⇒ still previous Cheon year
-    if (date < lny){
-      return solarYear - 2013;
-    }
-
-    // on/after lunar new year ⇒ current Cheon year
-    return solarYear - 2012;
+  // ============================================================
+  // Helpers
+  // ============================================================
+  function parseMD(md) { const parts = String(md).split('.').map(n => parseInt(n, 10)); return { m: parts[0], d: parts[1] }; }
+  function ymd(d) { const y = d.getFullYear(); const m = String(d.getMonth() + 1).padStart(2, '0'); const da = String(d.getDate()).padStart(2, '0'); return y + '-' + m + '-' + da; }
+  function toUTC(date) { return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())); }
+  function escapeHTML(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
   }
-
-  // ordinal number → 1st, 2nd, 3rd, 4th, 11th, 13th, etc.
-  function ordinal(n){
+  function ordinal(n) {
     const v = n % 100;
     if (v >= 11 && v <= 13) return n + 'th';
-    switch (n % 10){
+    switch (n % 10) {
       case 1: return n + 'st';
       case 2: return n + 'nd';
       case 3: return n + 'rd';
@@ -350,228 +1235,638 @@
     }
   }
 
-  function renderCheonYear(date){
-    if (!cheonYearEl) return;
-    const year = getCheonYear(date);
-    if (!year || year <= 0){
-      cheonYearEl.textContent = '';
-      return;
-    }
-    cheonYearEl.textContent = `(${ordinal(year)} Year of Cheon Il Guk)`;
+  function normalizeAnchors(arr) {
+    return (arr || []).map(function (a) {
+      if (!a || !a.date || !a.lunar_md) return null;
+      const parts = String(a.date).split('-').map(Number);
+      const yy = parts[0], mm = parts[1], dd = parts[2];
+      if (!yy || !mm || !dd) return null;
+      const md = parseMD(a.lunar_md);
+      if (!md.m || !md.d) return null;
+      const local = new Date(yy, mm - 1, dd);
+      return { date: a.date, dateUTC: toUTC(local), m: md.m, d: md.d };
+    }).filter(Boolean).sort(function (x, y) { return x.dateUTC - y.dateUTC; });
   }
 
+  function lunarMDFromGregorian(gregDate) {
+    if (typeof KoreanLunarCalendar === 'undefined') return null;
+    const cal = new KoreanLunarCalendar();
+    cal.setSolarDate(gregDate.getFullYear(), gregDate.getMonth() + 1, gregDate.getDate());
+    const lunar = cal.getLunarCalendar();
+    return { m: lunar.month, d: lunar.day };
+  }
 
-  
-  
-  
-  
-  
-  // Today card: recurring lunar + AHN from seed (yesterday)
-  function renderTodayCard(){
-    const now=new Date();
-    const md=lunarMDFromAnchors(ANCHORS, now);
-    ldayEl.textContent=md?md.d:'—';
-    ldateHumanEl.textContent=now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-    lunarMdEl.textContent=md?`Lunar M.D: ${md.m}.${md.d}`:'Lunar M.D: —';
+  let ANCHORS = [];
+  let HOLIDAYS = {};
+  let REC = [];
+  let REC_NOTES = [];
+  let AHN_SEED_DATE = null;
+  let AHN_INTERVAL_DAYS = 8;
 
-    const iso=ymd(now);
+  function isAhnByGregorian(date) {
+    if (!AHN_SEED_DATE) return false;
+    const dUTC = toUTC(date);
+    const seedUTC = toUTC(AHN_SEED_DATE);
+    const diffDays = Math.round((dUTC - seedUTC) / 86400000);
+    return ((diffDays % AHN_INTERVAL_DAYS) + AHN_INTERVAL_DAYS) % AHN_INTERVAL_DAYS === 0;
+  }
+  function matchRecurringLunar(md) {
+    if (!md || !REC.length) return [];
+    const key = md.m + '.' + md.d;
+    return REC.filter(function (h) { return String(h.lunar_md) === key; }).map(function (h) { return h.name; });
+  }
+  function matchRecurringLunarNotes(md) {
+    if (!md || !REC_NOTES.length) return [];
+    const key = md.m + '.' + md.d;
+    return REC_NOTES.filter(function (h) { return String(h.lunar_md) === key; }).map(function (h) { return h.name; });
+  }
 
-    // seed = yesterday
-      const y = new Date(now); y.setDate(y.getDate()-1);
-    const seedMd = lunarMDFromAnchors(ANCHORS, y);
+  // ============================================================
+  // Cheon Il Guk year
+  // ============================================================
+  function findLunarNewYearInSolarYear(year) {
+    for (let i = 0; i < 366; i++) {
+      const d = new Date(year, 0, 1 + i);
+      if (d.getFullYear() !== year) break;
+      const md = lunarMDFromGregorian(d);
+      if (md && md.m === 1 && md.d === 1) return d;
+    }
+    return null;
+  }
+  function getCheonYear(date) {
+    const solarYear = date.getFullYear();
+    const lny = findLunarNewYearInSolarYear(solarYear);
+    if (!lny) return solarYear - 2012;
+    if (date < lny) return solarYear - 2013;
+    return solarYear - 2012;
+  }
 
+  // ============================================================
+  // DOM refs
+  // ============================================================
+  const gridEl = document.getElementById('grid');
+  const monthLabel = document.getElementById('monthLabel');
+  const lcubeNumEl = document.getElementById('lcubeNum');
+  const lsolarDateEl = document.getElementById('lsolarDate');
+  const lspecialEl = document.getElementById('lspecial');
+  const cheonYearEl = document.getElementById('cheonYearLabel');
+  const upcomingListEl = document.getElementById('upcomingList');
+
+  let view = new Date(); view.setDate(1);
+  document.getElementById('prevMonth').addEventListener('click', function () { view.setMonth(view.getMonth() - 1); renderMonth(); });
+  document.getElementById('nextMonth').addEventListener('click', function () { view.setMonth(view.getMonth() + 1); renderMonth(); });
+
+  function renderCheonYear(date) {
+    if (!cheonYearEl) return;
+    const year = getCheonYear(date);
+    cheonYearEl.textContent = (!year || year <= 0) ? '' : ordinal(year) + ' year of Cheon Il Guk';
+  }
+
+  // ============================================================
+  // Today card
+  // ============================================================
+  function renderTodayCard() {
+    const now = new Date();
+    const md = lunarMDFromGregorian(now);
+    lcubeNumEl.textContent = md ? (md.m + '.' + md.d) : '—';
+    lsolarDateEl.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    renderCheonYear(now);
+
+    const iso = ymd(now);
     const recNames = matchRecurringLunar(md);
     const noteNames = matchRecurringLunarNotes(md);
     const isAhn = isAhnByGregorian(now);
 
+    const chips = [];
+    if (HOLIDAYS[iso]) chips.push({ type: 'holy', name: HOLIDAYS[iso] });
+    for (const name of recNames) chips.push({ type: 'holy', name });
+    if (isAhn) chips.push({ type: 'ahn', name: 'Ahn Shil Il' });
+    for (const name of noteNames) chips.push({ type: 'holy', name });
 
-    
-
-    // NEW:
-    const parts = [];
-    if (HOLIDAYS[iso]) parts.push(HOLIDAYS[iso]);
-    if (recNames.length) parts.push(...recNames);
-    if (isAhn) parts.push('AHN SHIL IL');
-    if (noteNames.length) parts.push(...noteNames);
-
-    lspecialEl.textContent = parts.join(', ');
+    lspecialEl.innerHTML = chips.map(function (c) {
+      return '<span class="lchip ' + c.type + '">' + escapeHTML(c.name) + '</span>';
+    }).join('');
   }
 
-  function renderMonth(){
-    const year=view.getFullYear(), month=view.getMonth();
+  // ============================================================
+  // Calendar grid
+  // ============================================================
+  function eventsForDate(date, md) {
+    const iso = ymd(date);
+    const events = [];
+    if (HOLIDAYS[iso]) events.push({ type: 'holy', name: HOLIDAYS[iso] });
+    const recNames = matchRecurringLunar(md);
+    for (const name of recNames) events.push({ type: 'holy', name });
+    if (isAhnByGregorian(date)) events.push({ type: 'ahn', name: 'Ahn Shil Il' });
+    const noteNames = matchRecurringLunarNotes(md);
+    for (const name of noteNames) events.push({ type: 'note', name });
+    return events;
+  }
+
+  function buildCell(date, dayNum, muted) {
+    const cell = document.createElement('div');
+    cell.className = 'cell' + (muted ? ' muted' : '');
+    cell.setAttribute('role', muted ? 'presentation' : 'gridcell');
+
+    const md = lunarMDFromGregorian(date);
+
+    const top = document.createElement('div'); top.className = 'topline';
+    const g = document.createElement('div'); g.className = 'gdate'; g.textContent = dayNum;
+    const l = document.createElement('div'); l.className = 'lunar-inline'; l.textContent = md ? (md.m + '.' + md.d) : '—';
+    top.appendChild(g); top.appendChild(l);
+    cell.appendChild(top);
+
+    const labelsRow = document.createElement('div'); labelsRow.className = 'labels-row';
+
+    if (!muted) {
+      const events = eventsForDate(date, md);
+      const ahnEvents  = events.filter(function (e) { return e.type === 'ahn'; });
+      const holyEvents = events.filter(function (e) { return e.type === 'holy'; });
+      const noteEvents = events.filter(function (e) { return e.type === 'note'; });
+
+      for (const ev of ahnEvents) {
+        const btn = document.createElement('span');
+        btn.className = 'evt-btn ahn';
+        btn.innerHTML = 'Ahn Shil Il <span class="evt-arrow" aria-hidden="true">›</span>';
+        btn.title = ev.name;
+        labelsRow.appendChild(btn);
+      }
+
+      if (holyEvents.length) {
+        const btn = document.createElement('span');
+        btn.className = 'evt-btn holy';
+        const label = holyEvents.length === 1 ? 'Holy Day' : 'Holy Days · ' + holyEvents.length;
+        btn.innerHTML = label + ' <span class="evt-arrow" aria-hidden="true">›</span>';
+        btn.title = holyEvents.map(function (e) { return e.name; }).join(' · ');
+        labelsRow.appendChild(btn);
+      }
+
+      if (noteEvents.length) {
+        const btn = document.createElement('span');
+        btn.className = 'evt-btn note';
+        const label = noteEvents.length === 1 ? 'Event' : 'Events · ' + noteEvents.length;
+        btn.innerHTML = label + ' <span class="evt-arrow" aria-hidden="true">›</span>';
+        btn.title = noteEvents.map(function (e) { return e.name; }).join(' · ');
+        labelsRow.appendChild(btn);
+      }
+
+      if (events.length > 0) {
+        cell.classList.add('has-events');
+        cell.setAttribute('tabindex', '0');
+        cell.setAttribute('aria-label',
+          date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) +
+          ' — ' + events.length + ' event' + (events.length === 1 ? '' : 's') + '. Press to view details.'
+        );
+        const handler = function () { openDaySheet(date, md, events); };
+        cell.addEventListener('click', handler);
+        cell.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
+        });
+      }
+    }
+
+    cell.appendChild(labelsRow);
+    return cell;
+  }
+
+  function renderMonth() {
+    const year = view.getFullYear(), month = view.getMonth();
     const refDate = new Date(year, month, 15);
     renderCheonYear(refDate);
-    monthLabel.textContent=new Date(year,month,1).toLocaleDateString('en-US',{month:'long',year:'numeric'});
+    monthLabel.textContent = new Date(year, month, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
-    gridEl.innerHTML='';
-    const first=new Date(year,month,1);
-    const startDow=(first.getDay()+6)%7; // Monday=0
-    const daysInMonth=new Date(year,month+1,0).getDate();
-    const todayIso=ymd(new Date());
+    gridEl.innerHTML = '';
+    const first = new Date(year, month, 1);
+    const startDow = (first.getDay() + 6) % 7;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const todayIso = ymd(new Date());
 
+    const prevMonthDate = new Date(year, month, 0);
+    const prevMonthDays = prevMonthDate.getDate();
+    const leadCount = startDow;
+    for (let i = leadCount - 1; i >= 0; i--) {
+      const dayNum = prevMonthDays - i;
+      const date = new Date(year, month, -i);
+      gridEl.appendChild(buildCell(date, dayNum, true));
+    }
 
-
-    /* leading days from previous month (muted cells) */
-    const prevMonthDate=new Date(year,month,0);
-    const prevMonthDays=prevMonthDate.getDate();
-    const leadCount=startDow;
-    for(let i=leadCount-1; i>=0; i--){
-      const dayNum=prevMonthDays-i;
-      const date=new Date(year,month, -i);
-      const cell=document.createElement('div'); cell.className='cell muted'; cell.setAttribute('aria-hidden','true');
-
-      const md=lunarMDFromAnchors(ANCHORS, date);
-      const top=document.createElement('div'); top.className='topline';
-      const g=document.createElement('div'); g.className='gdate'; g.textContent=dayNum;
-      const l=document.createElement('div'); l.className='lunar-inline'; l.textContent= md ? `(${md.m}.${md.d})` : '(—)';
-      top.appendChild(g); top.appendChild(l);
-      cell.appendChild(top);
-
-      const labelsRow=document.createElement('div'); labelsRow.className='labels-row';
-      cell.appendChild(labelsRow);
-
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(year, month, d);
+      const cell = buildCell(date, d, false);
+      if (ymd(date) === todayIso) cell.classList.add('today');
       gridEl.appendChild(cell);
     }
 
-    /* current month days */
-    for(let d=1; d<=daysInMonth; d++){
-      const cell=document.createElement('div'); cell.className='cell'; cell.setAttribute('role','gridcell');
-      const date=new Date(year,month,d);
-      const iso=ymd(date);
-      if(iso===todayIso) cell.classList.add('today');
-
-      const md=lunarMDFromAnchors(ANCHORS, date);
-
-      // topline
-      const top=document.createElement('div'); top.className='topline';
-      const g=document.createElement('div'); g.className='gdate'; g.textContent=d;
-      const l=document.createElement('div'); l.className='lunar-inline'; l.textContent= md ? `(${md.m}.${md.d})` : '(—)';
-      top.appendChild(g); top.appendChild(l);
-      cell.appendChild(top);
-
-      // second row: labels
-      const labelsRow=document.createElement('div'); labelsRow.className='labels-row';
-
-      // Gregorian override (red, holiday)
-      const isGregorianHoliday = !!HOLIDAYS[iso];
-      if(isGregorianHoliday){
-        cell.classList.add('holy');
-        const t=document.createElement('span'); t.className='tag red'; t.textContent=HOLIDAYS[iso];
-        labelsRow.appendChild(t);
-      }
-
-      // Recurring lunar holidays by M.D (red, holy)
-      const recNames = matchRecurringLunar(md);
-      if(recNames.length){
-        cell.classList.add('holy');
-        for(const name of recNames){
-          const t=document.createElement('span'); t.className='tag red'; t.textContent=name;
-          labelsRow.appendChild(t);
-        }
-      }
-
-      // NEW: recurring lunar "normal" notes by M.D (no special colors)
-      const noteNames = matchRecurringLunarNotes(md);
-      if(noteNames.length){
-        for(const name of noteNames){
-          const t=document.createElement('span');
-          t.className='tag';     
-          t.textContent=name;
-          labelsRow.appendChild(t);
-        }
-      }
-
-    // AHN SHIL IL: 
-      const isAhn = isAhnByGregorian(date);
-      if(isAhn){
-        cell.classList.add('ahn');
-        const t=document.createElement('span');
-        t.className='tag blue';
-        t.textContent='AHN SHIL IL';
-        labelsRow.appendChild(t);
-      }
-
-
-
-
-      cell.appendChild(labelsRow);
-      gridEl.appendChild(cell);
+    const totalSoFar = leadCount + daysInMonth;
+    const trailCount = (7 - (totalSoFar % 7)) % 7;
+    for (let i = 1; i <= trailCount; i++) {
+      const date = new Date(year, month + 1, i);
+      gridEl.appendChild(buildCell(date, i, true));
     }
 
     renderTodayCard();
   }
 
-  function showWarnOnce(msg){
-    try{
-      if(document.querySelector('.lunar-warn')) return;
-      const warn=document.createElement('div');
-      warn.className='lunar-warn';
-      warn.style.cssText='margin:12px 0 0 0;padding:10px;border-radius:8px;background:#fff3cd;color:#664d03;border:1px solid #ffe69c;font:14px/1.5 system-ui';
-      warn.textContent=msg;
-      document.querySelector('.lunar-wrap')?.prepend(warn);
-    }catch(_){}
+  // ============================================================
+  // Day sheet modal
+  // ============================================================
+  const daySheetEl = document.getElementById('daySheet');
+  const daySheetMdEl = document.getElementById('daySheetMd');
+  const daySheetEraEl = document.getElementById('daySheetEra');
+  const daySheetSolarEl = document.getElementById('daySheetSolar');
+  const daySheetBodyEl = document.getElementById('daySheetBody');
+  const daySheetCloseEl = document.getElementById('daySheetClose');
+
+  let savedScrollY = 0;
+  let daySheetLastFocus = null;
+
+  function lockBodyScroll() {
+    savedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + savedScrollY + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
   }
-  function tryParseJson(text){ try{ return JSON.parse(text); } catch(e){ throw new Error('JSON parse error: '+e.message); } }
+  function unlockBodyScroll() {
+    const htmlEl = document.documentElement;
+    const prevBehavior = htmlEl.style.scrollBehavior;
+    htmlEl.style.scrollBehavior = 'auto';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, savedScrollY);
+    requestAnimationFrame(function () { htmlEl.style.scrollBehavior = prevBehavior; });
+  }
 
-  fetch(JSON_URL, {credentials:'omit'})
-    .then(async r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return tryParseJson(await r.text()); })
-    
-    
-    .then(data=>{
-      
-      const EXTRA_ANCHORS = [
-        { date: '2025-01-01', lunar_md: '12.2' }
-      ];
+  function openDaySheet(date, md, events) {
+    if (!daySheetEl) return;
+    daySheetLastFocus = document.activeElement;
+    daySheetMdEl.textContent = md ? (md.m + '.' + md.d) : '—';
+    const cheon = getCheonYear(date);
+    daySheetEraEl.textContent = (cheon && cheon > 0) ? (ordinal(cheon) + ' year of Cheon Il Guk') : '';
+    daySheetSolarEl.textContent = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 
-      
-      const anchors = normalizeAnchors([
-        ...(data.anchors || []),
-        ...EXTRA_ANCHORS
-      ]);
+    if (!events || !events.length) {
+      daySheetBodyEl.innerHTML = '<p class="day-sheet__empty">No observances on this day.</p>';
+    } else {
+      daySheetBodyEl.innerHTML = events.map(function (ev) {
+        const label = ev.type === 'ahn' ? 'Weekly day of rest'
+                    : ev.type === 'holy' ? 'Holy Day'
+                    : 'Observance';
+        return '<button type="button" class="day-sheet__event" data-t="' + ev.type + '">' +
+                 '<div class="day-sheet__event-body">' +
+                   '<p class="day-sheet__event-name">' + escapeHTML(ev.name) + '</p>' +
+                   '<p class="day-sheet__event-meta">' + label + '</p>' +
+                 '</div>' +
+               '</button>';
+      }).join('');
+    }
 
+    daySheetEl.setAttribute('data-open', 'true');
+    lockBodyScroll();
+    daySheetCloseEl && daySheetCloseEl.focus();
+  }
+
+  function closeDaySheet() {
+    if (!daySheetEl) return;
+    daySheetEl.setAttribute('data-open', 'false');
+    unlockBodyScroll();
+    if (daySheetLastFocus && document.contains(daySheetLastFocus)) {
+      daySheetLastFocus.focus();
+      daySheetLastFocus = null;
+    }
+  }
+
+  if (daySheetEl) {
+    daySheetCloseEl && daySheetCloseEl.addEventListener('click', closeDaySheet);
+    daySheetEl.addEventListener('click', function (e) {
+      if (e.target === daySheetEl) closeDaySheet();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && daySheetEl.getAttribute('data-open') === 'true') closeDaySheet();
+    });
+  }
+
+  // ============================================================
+  // Upcoming
+  // ============================================================
+  function renderUpcoming() {
+    if (!upcomingListEl) return;
+    const events = [];
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const WINDOW_DAYS = 60;
+
+    for (let i = 0; i < WINDOW_DAYS; i++) {
+      const date = new Date(now);
+      date.setDate(now.getDate() + i);
+      const iso = ymd(date);
+      const md = lunarMDFromGregorian(date);
+
+      if (HOLIDAYS[iso]) events.push({ date: new Date(date), iso, name: HOLIDAYS[iso], type: 'holy', md });
+      const recNames = matchRecurringLunar(md);
+      for (const name of recNames) events.push({ date: new Date(date), iso, name, type: 'holy', md });
+      if (isAhnByGregorian(date)) events.push({ date: new Date(date), iso, name: 'Ahn Shil Il', type: 'ahn', md });
+      const noteNames = matchRecurringLunarNotes(md);
+      for (const name of noteNames) events.push({ date: new Date(date), iso, name, type: 'note', md });
+    }
+
+    if (!events.length) {
+      upcomingListEl.innerHTML = '<p class="upcoming-empty">No upcoming events in the next 60 days.</p>';
+      return;
+    }
+
+    const topEvents = events.slice(0, 8);
+
+    upcomingListEl.innerHTML = topEvents.map(function (e) {
+      const diff = Math.round((e.date - now) / 86400000);
+      const inStr = diff === 0 ? 'today' : diff === 1 ? 'tomorrow' : 'in ' + diff + ' days';
+      const dayNum = e.date.getDate();
+      const weekday = e.date.toLocaleDateString('en-US', { weekday: 'short' });
+      const monthShort = e.date.toLocaleDateString('en-US', { month: 'short' });
+      const chipLabel = e.type === 'ahn' ? 'Ahn Shil Il' : e.type === 'holy' ? 'Holy Day' : 'Event';
+      const mdStr = e.md ? (e.md.m + '.' + e.md.d) : '';
+      return '<div class="upcoming-item" data-type="' + e.type + '">' +
+               '<div class="upcoming-date">' +
+                 '<span class="upcoming-day">' + dayNum + '</span>' +
+                 '<span class="upcoming-weekday">' + weekday + ' · ' + monthShort + '</span>' +
+               '</div>' +
+               '<div>' +
+                 '<div class="upcoming-name">' + escapeHTML(e.name) + '</div>' +
+                 '<div class="upcoming-meta"><span class="chip">' + chipLabel + '</span>' +
+                   (mdStr ? 'Heavenly date ' + mdStr : '') +
+                 '</div>' +
+               '</div>' +
+               '<span class="upcoming-in">' + inStr + '</span>' +
+             '</div>';
+    }).join('');
+
+    injectUpcomingSchema(topEvents);
+  }
+
+  function injectUpcomingSchema(events) {
+    const existing = document.getElementById('upcoming-schema');
+    if (existing) existing.remove();
+    if (!events || !events.length) return;
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Upcoming Holy Days and Observances",
+      "description": "Next 60 days of Holy Days, Ahn Shil Il, and providential observances of the Unification movement.",
+      "url": SITE_URL.replace(/\/$/, '') + "/calendar/",
+      "numberOfItems": events.length,
+      "itemListElement": events.map(function (e, i) {
+        return {
+          "@type": "ListItem",
+          "position": i + 1,
+          "item": {
+            "@type": "Event",
+            "name": e.name,
+            "startDate": e.iso,
+            "endDate": e.iso,
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+            "location": [
+              { "@type": "VirtualLocation", "url": SITE_URL.replace(/\/$/, '') + "/calendar/" },
+              { "@type": "Place", "name": "Family Federation for World Peace and Unification centers worldwide" }
+            ],
+            "organizer": { "@type": "Organization", "name": "Family Federation for World Peace and Unification", "url": SITE_URL },
+            "description": e.type === 'ahn'
+              ? 'Weekly day of rest (Ahn Shil Il) observed in the Unification movement'
+              : 'Holy Day observed in the Unification movement',
+            "url": SITE_URL.replace(/\/$/, '') + "/calendar/#" + e.iso + "-" + e.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+          }
+        };
+      })
+    };
+
+    const script = document.createElement('script');
+    script.id = 'upcoming-schema';
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+  }
+
+  function showWarnOnce(msg) {
+    try {
+      if (document.querySelector('.lunar-warn')) return;
+      const warn = document.createElement('div');
+      warn.className = 'lunar-warn';
+      warn.style.cssText = 'margin:12px 0;padding:10px;border-radius:8px;background:#fff3cd;color:#664d03;border:1px solid #ffe69c;font:14px/1.5 system-ui';
+      warn.textContent = msg;
+      const wrap = document.querySelector('.lunar-wrap');
+      if (wrap) wrap.prepend(warn);
+    } catch (_) {}
+  }
+
+  function tryParseJson(text) { try { return JSON.parse(text); } catch (e) { throw new Error('JSON parse error: ' + e.message); } }
+
+  // ============================================================
+  // WebMCP — heavenly calendar tools
+  // ============================================================
+  function registerWebMCPTools() {
+    if (typeof navigator === 'undefined' || !navigator.modelContext) return;
+
+    navigator.modelContext.registerTool({
+      name: 'get_today_heavenly_date',
+      description: 'Get today\'s status in the Heavenly Calendar of the Unification movement: lunar month/day, Cheon Il Guk year, weekday, and any active observances (Ahn Shil Il day of rest, Holy Days). Use for queries like "what is today in the heavenly calendar", "is today a holy day", "is today Ahn Shil Il".',
+      inputSchema: { type: 'object', properties: {} },
+      async execute() {
+        const now = new Date();
+        const md = lunarMDFromGregorian(now);
+        const events = eventsForDate(now, md);
+        return {
+          content: [{
+            type: 'text',
+            text: JSON.stringify({
+              solar_date: ymd(now),
+              weekday: now.toLocaleDateString('en-US', { weekday: 'long' }),
+              lunar_month: md ? md.m : null,
+              lunar_day: md ? md.d : null,
+              cheon_il_guk_year: getCheonYear(now),
+              is_ahn_shil_il: isAhnByGregorian(now),
+              observances: events.map(function (e) { return { name: e.name, type: e.type }; }),
+              source_url: SITE_URL.replace(/\/$/, '') + '/calendar/'
+            }, null, 2)
+          }]
+        };
+      }
+    });
+
+    navigator.modelContext.registerTool({
+      name: 'get_upcoming_observances',
+      description: 'List upcoming Holy Days, Ahn Shil Il (days of rest), and providential observances of the Unification movement within a given window of days from today. Returns name, type, solar date, lunar date, weekday, and days from today.',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          days_ahead: { type: 'number', description: 'Number of days to look ahead (default 60, max 365)' },
+          types: {
+            type: 'array',
+            description: 'Filter by event types. "holy" = Holy Days, "ahn" = Ahn Shil Il (weekly rest), "note" = other observances. Omit for all.',
+            items: { type: 'string', enum: ['holy', 'ahn', 'note'] }
+          }
+        }
+      },
+      async execute(args) {
+        const win = Math.min(parseInt(args && args.days_ahead) || 60, 365);
+        const types = args && args.types;
+        const start = new Date(); start.setHours(0, 0, 0, 0);
+        const out = [];
+        for (let i = 0; i < win; i++) {
+          const d = new Date(start); d.setDate(start.getDate() + i);
+          const md = lunarMDFromGregorian(d);
+          const evs = eventsForDate(d, md);
+          for (const ev of evs) {
+            if (types && types.length && types.indexOf(ev.type) === -1) continue;
+            out.push({
+              solar_date: ymd(d),
+              weekday: d.toLocaleDateString('en-US', { weekday: 'short' }),
+              lunar_date: md ? (md.m + '.' + md.d) : null,
+              name: ev.name,
+              type: ev.type,
+              days_from_today: i
+            });
+          }
+        }
+        return { content: [{ type: 'text', text: JSON.stringify(out, null, 2) }] };
+      }
+    });
+
+    navigator.modelContext.registerTool({
+      name: 'convert_solar_to_heavenly',
+      description: 'Convert a Gregorian (solar) date to the Heavenly Calendar of the Unification movement. Returns lunar month/day, Cheon Il Guk year, weekday, and any observances on that date.',
+      inputSchema: {
+        type: 'object',
+        required: ['date'],
+        properties: {
+          date: { type: 'string', description: 'Solar date in YYYY-MM-DD format, e.g. "2026-02-13"' }
+        }
+      },
+      async execute(args) {
+        const parts = String((args && args.date) || '').split('-').map(Number);
+        const y = parts[0], m = parts[1], d = parts[2];
+        if (!y || !m || !d) {
+          return { content: [{ type: 'text', text: 'Invalid date. Use YYYY-MM-DD format.' }] };
+        }
+        const dt = new Date(y, m - 1, d);
+        const md = lunarMDFromGregorian(dt);
+        const events = eventsForDate(dt, md);
+        return {
+          content: [{
+            type: 'text',
+            text: JSON.stringify({
+              solar_date: ymd(dt),
+              weekday: dt.toLocaleDateString('en-US', { weekday: 'long' }),
+              lunar_month: md ? md.m : null,
+              lunar_day: md ? md.d : null,
+              cheon_il_guk_year: getCheonYear(dt),
+              is_ahn_shil_il: isAhnByGregorian(dt),
+              observances: events.map(function (e) { return { name: e.name, type: e.type }; })
+            }, null, 2)
+          }]
+        };
+      }
+    });
+  }
+
+  // ============================================================
+  // Init data + render
+  // ============================================================
+  fetch(JSON_URL, { credentials: 'omit' })
+    .then(async function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return tryParseJson(await r.text());
+    })
+    .then(function (data) {
+      const EXTRA_ANCHORS = [{ date: '2025-01-01', lunar_md: '12.2' }];
+      const anchors = normalizeAnchors([...(data.anchors || []), ...EXTRA_ANCHORS]);
       ANCHORS = anchors.length ? anchors : normalizeAnchors(FALLBACK_ANCHORS);
-
       HOLIDAYS = data.holidays || {};
       REC = Array.isArray(data.recurring_lunar_holidays) ? data.recurring_lunar_holidays : [];
       REC_NOTES = Array.isArray(data.recurring_lunar_notes) ? data.recurring_lunar_notes : [];
 
-      // AHN SHIL IL rule from JSON (Gregorian: base date + interval)
       if (data.ahn_shil_il_rule) {
         if (data.ahn_shil_il_rule.seed_gregorian) {
-          const [yy, mm, dd] = String(data.ahn_shil_il_rule.seed_gregorian).split('-').map(Number);
-          if (yy && mm && dd) {
-            AHN_SEED_DATE = new Date(yy, mm - 1, dd);
-          }
+          const parts = String(data.ahn_shil_il_rule.seed_gregorian).split('-').map(Number);
+          if (parts[0] && parts[1] && parts[2]) AHN_SEED_DATE = new Date(parts[0], parts[1] - 1, parts[2]);
         }
         if (data.ahn_shil_il_rule.interval_days) {
           const iv = parseInt(data.ahn_shil_il_rule.interval_days, 10);
-          if (!Number.isNaN(iv) && iv > 0) {
-            AHN_INTERVAL_DAYS = iv;
-          }
+          if (!Number.isNaN(iv) && iv > 0) AHN_INTERVAL_DAYS = iv;
         }
       }
-
-      if (!anchors.length) {
-        showWarnOnce('Lunar JSON loaded but anchors empty; using built-in anchors (incl. 1 Jan 2025 = 12.2).');
-      }
+      if (!anchors.length) showWarnOnce('Lunar JSON loaded but anchors empty; using built-in anchors.');
 
       renderMonth();
+      renderUpcoming();
+      registerWebMCPTools();
     })
-
-
-
-
-
-
-    .catch(err=>{
+    .catch(function (err) {
       console.warn('Lunar JSON load failed:', err);
-      showWarnOnce('Lunar JSON not loaded; using built-in anchors for Oct–Nov 2025.');
+      showWarnOnce('Lunar JSON not loaded; using built-in anchors.');
       ANCHORS = normalizeAnchors(FALLBACK_ANCHORS);
       HOLIDAYS = {};
       REC = [];
-      REC_NOTES = []; // NEW
-     
+      REC_NOTES = [];
       renderMonth();
+      renderUpcoming();
+      registerWebMCPTools();
     });
+
+  // ============================================================
+  // Embed dialog
+  // ============================================================
+  const embedBtn = document.getElementById('openEmbedCode');
+  const embedDialog = document.getElementById('embedDialog');
+  const embedCode = document.getElementById('embedCode');
+  const copyEmbed = document.getElementById('copyEmbedCode');
+  const closeEmbed = document.getElementById('closeEmbedDialog');
+
+  if (IS_EMBED && embedBtn && embedBtn.closest('.calendar-embed-cta')) {
+    embedBtn.closest('.calendar-embed-cta').style.display = 'none';
+    if (embedDialog) embedDialog.remove();
+  }
+
+  if (embedBtn && embedDialog) {
+    embedBtn.addEventListener('click', function () { embedDialog.hidden = false; });
+    closeEmbed && closeEmbed.addEventListener('click', function () { embedDialog.hidden = true; });
+    embedDialog.addEventListener('click', function (e) {
+      if (e.target === embedDialog) embedDialog.hidden = true;
+    });
+    copyEmbed && copyEmbed.addEventListener('click', async function () {
+      if (!embedCode) return;
+      try {
+        await navigator.clipboard.writeText(embedCode.value);
+        copyEmbed.textContent = 'Copied!';
+      } catch {
+        embedCode.select();
+        try { document.execCommand('copy'); } catch (_) {}
+        copyEmbed.textContent = 'Copied!';
+      }
+      setTimeout(function () { copyEmbed.textContent = 'Copy code'; }, 1200);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !embedDialog.hidden) embedDialog.hidden = true;
+    });
+  }
+
+  // ============================================================
+  // FAQ single-open behavior
+  // ============================================================
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    item.addEventListener('toggle', function () {
+      if (item.open) {
+        document.querySelectorAll('.faq-item[open]').forEach(function (other) {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
 })();
 </script>
