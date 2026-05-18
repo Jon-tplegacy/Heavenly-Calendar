@@ -36,6 +36,12 @@
       "confidence": "high"
     },
 
+    {
+      "name": "True God's Day (1968)",
+      "slug": "god day",
+      "lunar_md": "1.1",
+      "confidence": "high"
+    },
 
     {
       "name": "True Parents’ Birthday ",
@@ -66,7 +72,9 @@
 
 "recurring_lunar_notes": [
     { "lunar_md": "1.2", "name": "Day of Victory of Love" },
-    { "lunar_md": "1.15", "name": "True Father arrives in the US" },
+    { "lunar_md": "7.20", "name": "Day of Heavenly Parentism" },
+    { "lunar_md": "2.16", "name": "New Hope Farm Declaration (1995)" },
+    { "lunar_md": "1.15", "name": "Coronation for the Authority of the Liberation of God, the King of Kings" },
     { "lunar_md": "12.11", "name": "Founding CARP" },
     { "lunar_md": "12.20", "name": "Cheongpyeong Providence begins" },
     { "lunar_md": "1.24", "name": "The 74-Couple Blessing" },
