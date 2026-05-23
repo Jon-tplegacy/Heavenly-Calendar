@@ -1,24 +1,45 @@
-This is free and unencumbered software released into the public domain.
+MIT License (code)
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
+Copyright (c) 2026 True Parents Legacy
 
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-For more information, please refer to <https://unlicense.org>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+
+DATA LICENSE — Creative Commons Attribution-ShareAlike 4.0 International
+
+The dataset files in this repository — including `lunar.json` and any derived
+data tables, JSON exports, or extracted content — are licensed separately under
+the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).
+
+Full license text: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+Summary:
+  • You may share — copy and redistribute the data in any medium or format
+  • You may adapt — remix, transform, and build upon the data for any purpose,
+    even commercially
+  • Under the following terms:
+      - Attribution: you must give appropriate credit to "True Parents Legacy
+        archive (tplegacy.net)" and indicate if changes were made
+      - ShareAlike: if you remix, transform, or build upon the data, you must
+        distribute your contributions under the same license
+
+Citation:
+  True Parents Legacy (2026). Heavenly Calendar — Cheon Il Guk lunar calendar
+  dataset, v1.0.0. https://jon-tplegacy.github.io/Heavenly-Calendar/. CC BY-SA 4.0.

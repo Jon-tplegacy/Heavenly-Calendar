@@ -1,9 +1,58 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "metadata": {
+    "title": "Heavenly Calendar — Cheon Il Guk lunar calendar dataset",
+    "description": "Open dataset of the Heavenly Calendar of the Unification Movement: ten canonical Holy Days, weekly Ahn Shil Il (day of rest), and ~50 providential observances of the Family Federation for World Peace and Unification. Lunar dates (month.day) keyed against the Korean lunar calendar with solar-date anchors and a deterministic weekly rest rule.",
+    "version": "1.0.0",
+    "datePublished": "2026-05-23",
+    "dateModified": "2026-05-23",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "homepage": "https://tplegacy.net/calendar/",
+    "repository": "https://github.com/Jon-tplegacy/Heavenly-Calendar",
+    "demo": "https://jon-tplegacy.github.io/Heavenly-Calendar/",
+    "creator": {
+      "name": "True Parents Legacy",
+      "url": "https://tplegacy.net/",
+      "wikidata": "Q138757400"
+    },
+    "totalHolyDays": 10,
+    "totalObservances": 49,
+    "calendarSystem": "Korean lunar calendar (Heavenly Calendar of Cheon Il Guk)",
+    "epoch": "Foundation Day — January 13, 2013 (Gregorian) = 1st year of Cheon Il Guk",
+    "keywords": [
+      "Heavenly Calendar",
+      "Cheon Il Guk",
+      "Ahn Shil Il",
+      "Korean lunar calendar",
+      "Unification Movement holidays",
+      "Foundation Day",
+      "Seonghwa",
+      "Sun Myung Moon",
+      "Hak Ja Han Moon",
+      "True Parents",
+      "FFWPU",
+      "providential calendar",
+      "religious calendar"
+    ]
+  },
+  "schema": {
+    "anchors": "Array of solar-to-lunar reference pairs. Each entry pins a known Gregorian date to its lunar month.day, used by the rendering code to verify the conversion library. Fields: date (YYYY-MM-DD, Gregorian), lunar_md (M.D, lunar month.day).",
+    "recurring_lunar_holidays": "The ten canonical Holy Days of Cheon Il Guk, observed annually on the same lunar month.day. Fields: name (English), slug (kebab-case ID), lunar_md (M.D), confidence ('high' | 'medium').",
+    "recurring_lunar_notes": "Secondary providential observances (foundings, declarations, blessings, anniversaries) — not principal Holy Days but tracked annually by lunar date. Fields: lunar_md (M.D), name (English description).",
+    "ahn_shil_il_rule": "Weekly day of rest in Cheon Il Guk. Computed deterministically as every Nth Gregorian day from a seed date. Fields: description (human-readable), seed_gregorian (YYYY-MM-DD), interval_days (integer, currently 8).",
+    "holidays_override_gregorian": "Explicit Gregorian-date overrides for specific years where the canonical lunar conversion needs correction. Map of YYYY-MM-DD → holiday name."
+  },
   "anchors": [
-    { "date": "2025-10-21", "lunar_md": "9.1" },
-    { "date": "2025-11-20", "lunar_md": "10.1" }
+    {
+      "date": "2025-10-21",
+      "lunar_md": "9.1"
+    },
+    {
+      "date": "2025-11-20",
+      "lunar_md": "10.1"
+    }
   ],
-
   "recurring_lunar_holidays": [
     {
       "name": "Foundation Day",
@@ -24,39 +73,37 @@
       "confidence": "high"
     },
     {
-      "name": "True Children’s Day",
+      "name": "True Children's Day",
       "slug": "true-childrens-day",
       "lunar_md": "10.1",
       "confidence": "high"
     },
     {
-      "name": "Declaration Day of God’s Eternal Blessing",
+      "name": "Declaration Day of God's Eternal Blessing",
       "slug": "foundation-day-cig",
       "lunar_md": "7.1",
       "confidence": "high"
     },
-
     {
       "name": "True God's Day (1968)",
-      "slug": "god day",
+      "slug": "god-day",
       "lunar_md": "1.1",
       "confidence": "high"
     },
-
     {
-      "name": "True Parents’ Birthday ",
+      "name": "True Parents' Birthday",
       "slug": "tp-birthday",
       "lunar_md": "1.6",
       "confidence": "medium"
     },
     {
-      "name": "True Parents’ Holy Wedding. Heavenly Parent’s Day. True Parents’ Day  ",
+      "name": "True Parents' Holy Wedding. Heavenly Parent's Day. True Parents' Day",
       "slug": "tp-holy-wedding",
       "lunar_md": "3.16",
       "confidence": "medium"
     },
     {
-      "name": " Anniversary of True Father’s Seonghwa",
+      "name": "Anniversary of True Father's Seonghwa",
       "slug": "7-1-jeol",
       "lunar_md": "7.17",
       "confidence": "high"
@@ -68,78 +115,214 @@
       "confidence": "high"
     }
   ],
-
-
-"recurring_lunar_notes": [
-    { "lunar_md": "1.2", "name": "Day of Victory of Love" },
-    { "lunar_md": "7.20", "name": "Day of Heavenly Parentism" },
-    { "lunar_md": "2.16", "name": "New Hope Farm Declaration (1995)" },
-    { "lunar_md": "1.15", "name": "Coronation for the Authority of the Liberation of God, the King of Kings" },
-    { "lunar_md": "12.11", "name": "Founding CARP" },
-    { "lunar_md": "12.20", "name": "Cheongpyeong Providence begins" },
-    { "lunar_md": "1.24", "name": "The 74-Couple Blessing" },
-    { "lunar_md": "1.25", "name": "The 430-Couple Blessing" },
-    { "lunar_md": "2.18", "name": "Pacific Rim Era Launched (2007)" },
-    { "lunar_md": "3.4", "name": "Today’s World published (1980)" },
-    { "lunar_md": "3.13", "name": "Founding of Women’s Federation for World Peace (1992)" },
-    { "lunar_md": "4.9", "name": "Founding PWPA" },
-    { "lunar_md": "4.12", "name": "True Father finishes writing The Wolli Wonbon (1952)" },
-    { "lunar_md": "4.14", "name": "Jerusalem Declaration (2003)" },
-    { "lunar_md": "4.20", "name": "First Edition of The Washington Times published (1982)" },
-    { "lunar_md": "4.24", "name": "American Clergy Leadership Conference established (2000)" },
-    { "lunar_md": "6.16", "name": "Settlement of True Parents of Heaven, Earth,& Humankind (2010)" },
-    { "lunar_md": "6.19", "name": "Universal Ballet Company established (1984)" },
-    { "lunar_md": "6.21", "name": "World Peace Cup Tournament inaugurated (2003)" },
-    { "lunar_md": "6.3", "name": "Founding of Youth Federation (1994)" },
-    { "lunar_md": "6.27", "name": "Day of Total Victory Father’s Release from Danbury (1985)" },
-    { "lunar_md": "7.9", "name": "Ceremony for the Settlement of Eight Stages" },
-    { "lunar_md": "7.4", "name": "Inter-Religious Federation for World Peace (IRFWP)(1991)" },
-    { "lunar_md": "7.21", "name": "Founding of Universal Peace Federation (UPF) (2005)" },
-    { "lunar_md": "7.27", "name": "True Father speaks at Madison Square Garden (1974) " },
-    { "lunar_md": "7.28", "name": "Unification Theological Seminary established (1975) " },
-    { "lunar_md": "8.3", "name": "Abel UN Proclaimed (2007) " },
-    { "lunar_md": "8.10", "name": "Ocean Church founded (1980) " },
-    { "lunar_md": "8.13", "name": "Day of Victory of Heaven (1976) " },
-    { "lunar_md": "8.17", "name": "Cheongpa Dong Church purchased (1955) " },
-    { "lunar_md": "8.22", "name": "Hoon Dok Hwe tradition begins (1997) " },
-    { "lunar_md": "8.23", "name": "Father Released from Heungnam (1950) " },
-    { "lunar_md": "10.11", "name": "True Parents visit North Korea (1991) " },
-    { "lunar_md": "11.10", "name": "International Cross-Cultural Blessing for World Peace (2005) " },
-    { "lunar_md": "11.12", "name": "News World begins publication (1976) " },
-    { "lunar_md": "10.4", "name": "First ICUS Conference (1972) " },
-    { "lunar_md": "11.4", "name": "Coronation of the King of Peace (2003)  " },
-    { "lunar_md": "12.3", "name": "First Missionaries arrive in the U.S. (1959)  " },
-    { "lunar_md": "2.10", "name": "True Father’s autobiography “As a Peace Loving Global Citizen” published (2009) " },
-    { "lunar_md": "2.24", "name": "Crown of Peace Coronation of True Parents (2004) " },
-    { "lunar_md": "2.2", "name": "Trial Edition of Washington Times published (1982) " },
-    { "lunar_md": "4.18", "name": "The 36-Couple Blessing " },
-    { "lunar_md": "5.11", "name": "The 72-Couple Blessing " },
-    { "lunar_md": "5.22", "name": "Cheongpyeong Training Center groundbreaking (1971) " },
-    { "lunar_md": "6.7", "name": "Anniversary of the 2075-Couple Blessing " },
-    { "lunar_md": "6.24", "name": "The Entrance into Cheon Jeong Gung and Coronation of True Parents as the King & Queen of Cosmic Peace " },
-    { "lunar_md": "7.16", "name": "True Mother speaks at the United Nations (1993) " },
-    { "lunar_md": "8.19", "name": "Ceremony Based of the Completion of the Settlement of the True Parents of Heaven, Earth, and Humankind (2010) " },
-    { "lunar_md": "9.1", "name": "Anniversary of 777 Couple Blessing " },
-    { "lunar_md": "9.10", "name": "Anniversary of the 6,500-Couple Blessing " }
+  "recurring_lunar_notes": [
+    {
+      "lunar_md": "1.2",
+      "name": "Day of Victory of Love"
+    },
+    {
+      "lunar_md": "7.20",
+      "name": "Day of Heavenly Parentism"
+    },
+    {
+      "lunar_md": "2.16",
+      "name": "New Hope Farm Declaration (1995)"
+    },
+    {
+      "lunar_md": "1.15",
+      "name": "Coronation for the Authority of the Liberation of God, the King of Kings"
+    },
+    {
+      "lunar_md": "12.11",
+      "name": "Founding CARP"
+    },
+    {
+      "lunar_md": "12.20",
+      "name": "Cheongpyeong Providence begins"
+    },
+    {
+      "lunar_md": "1.24",
+      "name": "The 74-Couple Blessing"
+    },
+    {
+      "lunar_md": "1.25",
+      "name": "The 430-Couple Blessing"
+    },
+    {
+      "lunar_md": "2.18",
+      "name": "Pacific Rim Era Launched (2007)"
+    },
+    {
+      "lunar_md": "3.4",
+      "name": "Today's World published (1980)"
+    },
+    {
+      "lunar_md": "3.13",
+      "name": "Founding of Women's Federation for World Peace (1992)"
+    },
+    {
+      "lunar_md": "4.9",
+      "name": "Founding PWPA"
+    },
+    {
+      "lunar_md": "4.12",
+      "name": "True Father finishes writing The Wolli Wonbon (1952)"
+    },
+    {
+      "lunar_md": "4.14",
+      "name": "Jerusalem Declaration (2003)"
+    },
+    {
+      "lunar_md": "4.20",
+      "name": "First Edition of The Washington Times published (1982)"
+    },
+    {
+      "lunar_md": "4.24",
+      "name": "American Clergy Leadership Conference established (2000)"
+    },
+    {
+      "lunar_md": "6.16",
+      "name": "Settlement of True Parents of Heaven, Earth, & Humankind (2010)"
+    },
+    {
+      "lunar_md": "6.19",
+      "name": "Universal Ballet Company established (1984)"
+    },
+    {
+      "lunar_md": "6.21",
+      "name": "World Peace Cup Tournament inaugurated (2003)"
+    },
+    {
+      "lunar_md": "6.3",
+      "name": "Founding of Youth Federation (1994)"
+    },
+    {
+      "lunar_md": "6.27",
+      "name": "Day of Total Victory Father's Release from Danbury (1985)"
+    },
+    {
+      "lunar_md": "7.9",
+      "name": "Ceremony for the Settlement of Eight Stages"
+    },
+    {
+      "lunar_md": "7.4",
+      "name": "Inter-Religious Federation for World Peace (IRFWP) (1991)"
+    },
+    {
+      "lunar_md": "7.21",
+      "name": "Founding of Universal Peace Federation (UPF) (2005)"
+    },
+    {
+      "lunar_md": "7.27",
+      "name": "True Father speaks at Madison Square Garden (1974)"
+    },
+    {
+      "lunar_md": "7.28",
+      "name": "Unification Theological Seminary established (1975)"
+    },
+    {
+      "lunar_md": "8.3",
+      "name": "Abel UN Proclaimed (2007)"
+    },
+    {
+      "lunar_md": "8.10",
+      "name": "Ocean Church founded (1980)"
+    },
+    {
+      "lunar_md": "8.13",
+      "name": "Day of Victory of Heaven (1976)"
+    },
+    {
+      "lunar_md": "8.17",
+      "name": "Cheongpa Dong Church purchased (1955)"
+    },
+    {
+      "lunar_md": "8.22",
+      "name": "Hoon Dok Hwe tradition begins (1997)"
+    },
+    {
+      "lunar_md": "8.23",
+      "name": "Father Released from Heungnam (1950)"
+    },
+    {
+      "lunar_md": "10.11",
+      "name": "True Parents visit North Korea (1991)"
+    },
+    {
+      "lunar_md": "11.10",
+      "name": "International Cross-Cultural Blessing for World Peace (2005)"
+    },
+    {
+      "lunar_md": "11.12",
+      "name": "News World begins publication (1976)"
+    },
+    {
+      "lunar_md": "10.4",
+      "name": "First ICUS Conference (1972)"
+    },
+    {
+      "lunar_md": "11.4",
+      "name": "Coronation of the King of Peace (2003)"
+    },
+    {
+      "lunar_md": "12.3",
+      "name": "First Missionaries arrive in the U.S. (1959)"
+    },
+    {
+      "lunar_md": "2.10",
+      "name": "True Father's autobiography 'As a Peace Loving Global Citizen' published (2009)"
+    },
+    {
+      "lunar_md": "2.24",
+      "name": "Crown of Peace Coronation of True Parents (2004)"
+    },
+    {
+      "lunar_md": "2.2",
+      "name": "Trial Edition of Washington Times published (1982)"
+    },
+    {
+      "lunar_md": "4.18",
+      "name": "The 36-Couple Blessing"
+    },
+    {
+      "lunar_md": "5.11",
+      "name": "The 72-Couple Blessing"
+    },
+    {
+      "lunar_md": "5.22",
+      "name": "Cheongpyeong Training Center groundbreaking (1971)"
+    },
+    {
+      "lunar_md": "6.7",
+      "name": "Anniversary of the 2075-Couple Blessing"
+    },
+    {
+      "lunar_md": "6.24",
+      "name": "The Entrance into Cheon Jeong Gung and Coronation of True Parents as the King & Queen of Cosmic Peace"
+    },
+    {
+      "lunar_md": "7.16",
+      "name": "True Mother speaks at the United Nations (1993)"
+    },
+    {
+      "lunar_md": "8.19",
+      "name": "Ceremony Based of the Completion of the Settlement of the True Parents of Heaven, Earth, and Humankind (2010)"
+    },
+    {
+      "lunar_md": "9.1",
+      "name": "Anniversary of 777 Couple Blessing"
+    },
+    {
+      "lunar_md": "9.10",
+      "name": "Anniversary of the 6,500-Couple Blessing"
+    }
   ],
-
-
-
-
-
-
-
-
-
- "ahn_shil_il_rule": {
-  "description": "Ahn Shi Il every 8th day starting from 2025-09-04 (Gregorian)",
-  "seed_gregorian": "2025-09-04",
-  "interval_days": 8
-},
-
-
-
+  "ahn_shil_il_rule": {
+    "description": "Ahn Shi Il every 8th day starting from 2025-09-04 (Gregorian)",
+    "seed_gregorian": "2025-09-04",
+    "interval_days": 8
+  },
   "holidays_override_gregorian": {
-    "2025-11-20": "True Children’s Day"
+    "2025-11-20": "True Children's Day"
   }
 }
