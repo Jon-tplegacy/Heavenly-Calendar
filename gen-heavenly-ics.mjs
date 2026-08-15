@@ -127,8 +127,10 @@ const lines = [
   'X-WR-CALNAME:Heavenly Calendar',
   'X-WR-CALDESC:Holy Days and Ahn Shil Il of Cheon Il Guk. CC BY-SA 4.0 - tplegacy.net',
   'SOURCE;VALUE=URI:https://jon-tplegacy.github.io/Heavenly-Calendar/heavenly.ics',
-  'X-PUBLISHED-TTL:PT24H',
-  'REFRESH-INTERVAL;VALUE=DURATION:PT24H'
+  // The dataset changes at most once a year, so asking clients to re-fetch
+  // monthly is enough — and it keeps traffic off GitHub Pages.
+  'X-PUBLISHED-TTL:P30D',
+  'REFRESH-INTERVAL;VALUE=DURATION:P30D'
 ];
 
 for (const e of events) {
