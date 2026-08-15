@@ -8,10 +8,15 @@
  * a new build is all that is needed to update every subscriber.
  *
  *   npm install korean-lunar-calendar
- *   node gen-heavenly-ics.mjs --in lunar.json --out heavenly.ics --from 2013 --to 2040
+ *   node gen-heavenly-ics.mjs --from 2013 --to 2040 --ahn-from 2024
  *
  * Defaults: --in lunar.json --out heavenly.ics --from 2013 --to <current year + 10>
- * Add --notes to include the ~50 secondary providential observances.
+ *
+ *   --ahn-from <year>  start the weekly Ahn Shil Il later than the Holy Days.
+ *                      Keeps the file small: past weeks are dead weight in a
+ *                      personal calendar, while past Holy Days are anniversaries
+ *                      worth keeping.
+ *   --notes            include the ~50 secondary providential observances.
  *
  * License: CC BY-SA 4.0, True Parents Legacy (tplegacy.net).
  */
@@ -33,13 +38,20 @@ const YEAR_FROM = parseInt(arg('from', '2013'), 10);
 const YEAR_TO   = parseInt(arg('to', String(new Date().getFullYear() + 10)), 10);
 const WITH_NOTES = flag('notes');
 
+// Ahn Shil Il recurs every 8 days, so it dominates the file size — roughly
+// 45 events per year against 10 Holy Days. Historical weeks are of no use in
+// a personal calendar, so it can start later than the Holy Days do.
+const AHN_FROM = parseInt(arg('ahn-from', String(YEAR_FROM)), 10);
+
 const SITE   = 'https://tplegacy.net/calendar/';
 const UID_NS = 'heavenly-calendar.tplegacy.net';
 
 // ---------------------------------------------------------------- data
 const data = JSON.parse(readFileSync(IN_FILE, 'utf8'));
 
-const HOLIDAYS  = data.holidays || {};
+// The published lunar.json calls this key `holidays_override_gregorian`.
+// The older `holidays` name is accepted too, in case the dataset changes back.
+const HOLIDAYS  = data.holidays_override_gregorian || data.holidays || {};
 const REC       = Array.isArray(data.recurring_lunar_holidays) ? data.recurring_lunar_holidays : [];
 const REC_NOTES = Array.isArray(data.recurring_lunar_notes) ? data.recurring_lunar_notes : [];
 
@@ -99,19 +111,32 @@ const events = [];
 const cursor = new Date(Date.UTC(YEAR_FROM, 0, 1));
 const end = new Date(Date.UTC(YEAR_TO, 11, 31));
 
+let duplicates = 0;
+
 while (cursor <= end) {
   const iso = ymd(cursor);
   const md = lunarMD(cursor);
 
-  if (HOLIDAYS[iso]) events.push({ date: new Date(cursor), iso, md, type: 'holy', name: HOLIDAYS[iso] });
-  for (const name of matchLunar(REC, md)) events.push({ date: new Date(cursor), iso, md, type: 'holy', name });
-  if (isAhn(cursor)) events.push({ date: new Date(cursor), iso, md, type: 'ahn', name: 'Ahn Shil Il' });
-  if (WITH_NOTES) {
-    for (const name of matchLunar(REC_NOTES, md)) events.push({ date: new Date(cursor), iso, md, type: 'note', name });
-  }
+  // A Gregorian override and the lunar rule can land the same holiday on the
+  // same day (e.g. 2025-11-20 True Children's Day). Emitting it twice would
+  // produce two VEVENTs sharing one UID, which breaks strict clients.
+  const seen = new Set();
+  const add = (type, name) => {
+    const key = type + '|' + name;
+    if (seen.has(key)) { duplicates++; return; }
+    seen.add(key);
+    events.push({ date: new Date(cursor), iso, md, type, name });
+  };
+
+  if (HOLIDAYS[iso]) add('holy', HOLIDAYS[iso]);
+  for (const name of matchLunar(REC, md)) add('holy', name);
+  if (cursor.getUTCFullYear() >= AHN_FROM && isAhn(cursor)) add('ahn', 'Ahn Shil Il');
+  if (WITH_NOTES) for (const name of matchLunar(REC_NOTES, md)) add('note', name);
 
   cursor.setUTCDate(cursor.getUTCDate() + 1);
 }
+
+if (duplicates) console.log('  (collapsed ' + duplicates + ' duplicate entr' + (duplicates === 1 ? 'y' : 'ies') + ')');
 
 // ---------------------------------------------------------------- build
 // DTSTAMP is pinned to the start of the build day so that rebuilding without
